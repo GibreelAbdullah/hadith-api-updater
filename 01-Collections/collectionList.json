@@ -1,0 +1,46 @@
+{
+    "collections": [
+        {
+            "name": "bukhari",
+            "eng-name": "Sahih al Bukhari",
+            "ara-name": "صحيح البخاري",
+            "order": 1
+        },
+        {
+            "name": "muslim",
+            "eng-name": "Sahih Muslim",
+            "ara-name": "صحيح مسلم",
+            "order": 2
+        },
+        {
+            "name": "nasai",
+            "eng-name": "Sunan an Nasai",
+            "ara-name": "سنن النسائي",
+            "order": 3
+        },
+        {
+            "name": "abudawud",
+            "eng-name": "Sunan Abu Dawud",
+            "ara-name": "سنن أبي داود",
+            "order": 4
+        },
+        {
+            "name": "tirmidhi",
+            "eng-name": "Jami At Tirmidhi",
+            "ara-name": "جامع الترمذي",
+            "order": 5
+        },
+        {
+            "name": "ibnmajah",
+            "eng-name": "Sunan Ibn Majah",
+            "ara-name": "سنن ابن ماجه",
+            "order": 6
+        },
+        {
+            "name": "malik",
+            "eng-name": "Muwatta Malik",
+            "ara-name": "موطأ مالك",
+            "order": 7
+        }
+    ]
+}

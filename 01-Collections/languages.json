@@ -1,0 +1,34 @@
+{
+    "1":{
+        "Name":"Arabic",
+        "Prefix":"ara"
+    },
+    "2":{
+        "Name":"English",
+        "Prefix":"eng"
+    },
+    "3":{
+        "Name":"Bengali",
+        "Prefix":"ben"
+    },
+    "4":{
+        "Name":"Indonesian",
+        "Prefix":"ind"
+    },
+    "5":{
+        "Name":"Turkish",
+        "Prefix":"tur"
+    },
+    "6":{
+        "Name":"Urdu",
+        "Prefix":"urd"
+    },
+    "7":{
+        "Name":"Tamil",
+        "Prefix":"tam"
+    },
+    "8":{
+        "Name":"French",
+        "Prefix":"fra"
+    }
+}

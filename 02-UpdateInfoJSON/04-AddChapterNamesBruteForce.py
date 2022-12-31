@@ -1,0 +1,105 @@
+# The brute force method
+
+import sqlite3
+import json
+
+conn = sqlite3.connect("hadith.db")
+
+
+def getCollectionFullName(shortName):
+    mapping = {
+        "bukhari": "Sahih al Bukhari",
+        "muslim": "Sahih Muslim",
+        "nasai": "Sunan an Nasai",
+        "abudawud": "Sunan Abu Dawud",
+        "tirmidhi": "Jami At Tirmidhi",
+        "ibnmajah": "Sunan Ibn Majah",
+        "malik": "Muwatta Malik",
+    }
+    return mapping.get(shortName, " ")
+
+
+def getDBData():
+    query = '''
+			SELECT
+					c.title_en collection_title,
+					h.book_id,
+					h.order_in_book,
+					b.title_en book_name,
+					c2.title ara_ch_name,
+					c2.title_en eng_ch_name,
+					CASE
+						h.chapter_id - h.prev_chapter_id
+					when 0 then 0
+						else 1
+					end is_first_hadith_of_chapter,
+                    c2.number
+				from
+					(
+					SELECT
+						h.collection_id,
+						h.book_id,
+						h.chapter_id,
+						LAG ( h.chapter_id,
+						1,
+						0 ) OVER (
+					ORDER BY
+						collection_id,
+						book_id ,
+						order_in_book  
+					) prev_chapter_id,
+						h.order_in_book
+					from
+						hadith h
+						) h
+				inner  join collection c on
+						c.id = h.collection_id
+				left outer join book b on
+						b.collection_id = h.collection_id
+						and b.id = h.book_id
+				left outer JOIN chapter c2 on
+						c2.collection_id = h.collection_id
+					and 
+						c2.book_id = h.book_id
+					and
+						c2.id = h.chapter_id
+			'''
+    cursor = conn.execute(query)
+    return cursor.fetchall()
+
+
+dbData = getDBData()
+
+
+def getChapterDetails(collectionName, hadithReference):
+    bookNumber = hadithReference["book"]
+    hadithNumber = hadithReference["hadith"]
+    for data in dbData:
+        if (data[0] == getCollectionFullName(collectionName) and data[1] == bookNumber and data[2] == hadithNumber):
+            dbData.pop()
+            return {
+                "id": None if data[7] == '' or data[7] is None else int(data[7]),
+                "ara-name": data[4] if data[4] is None else data[4].replace('‏',''),
+                "eng_name": data[5],
+                "isFirstHadith": bool(data[6]),
+            }
+    return {
+        "id": None,
+        "ara-name": None,
+        "eng_name": None,
+        "isFirstHadith": None,
+    }
+
+
+inputFile = open('../../hadith-api/info.json', 'r', encoding="utf-8")
+data = json.load(inputFile)
+
+for collectionName, collectionDetails in data.items():
+    print(collectionName)
+    for hadith in data[collectionName]["hadiths"]:
+        hadith["chapter"] = getChapterDetails(collectionName, hadith["reference"])
+
+inputFile.close
+outputFile = open('../../hadith-api/info_new.json', 'w', encoding="utf-8")
+outputFile.write(json.dumps(data, indent=4, ensure_ascii=False))
+outputFile.close

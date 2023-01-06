@@ -1,4 +1,5 @@
-# Generate collections.json and collections.min.json
+# Generate collections.json and collections.min.json 
+# List of collections in the database and the languages they are available in
 import json
  
 editionsFile = open('../../hadith-api/editions.json','r',encoding="utf-8")

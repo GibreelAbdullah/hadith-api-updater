@@ -3,7 +3,7 @@
 import sqlite3
 import json
 
-conn = sqlite3.connect("hadith.db")
+conn = sqlite3.connect("../hadith.db")
 
 
 def getCollectionFullName(shortName):
@@ -72,17 +72,18 @@ dbData = getDBData()
 
 
 def getChapterDetails(collectionName, hadithReference):
-    bookNumber = hadithReference["book"]
-    hadithNumber = hadithReference["hadith"]
-    for data in dbData:
-        if (data[0] == getCollectionFullName(collectionName) and data[1] == bookNumber and data[2] == hadithNumber):
-            dbData.pop()
-            return {
-                "id": None if data[7] == '' or data[7] is None else int(data[7]),
-                "ara-name": data[4] if data[4] is None else data[4].replace('‏',''),
-                "eng_name": data[5],
-                "isFirstHadith": bool(data[6]),
-            }
+    fullName = getCollectionFullName(collectionName)
+    if (fullName != " "):
+        bookNumber = hadithReference["book"]
+        hadithNumber = hadithReference["hadith"]
+        for data in dbData:
+            if (data[0] ==  fullName and int(data[1]) == bookNumber and int(data[2]) == hadithNumber):
+                return {
+                    "id": None if data[7] == '' or data[7] is None else int(data[7]),
+                    "ara-name": data[4] if data[4] is None else data[4].replace('‏',''),
+                    "eng-name": data[5],
+                    "isFirstHadith": bool(data[6]),
+                }
     return {
         "id": None,
         "ara-name": None,
@@ -100,6 +101,6 @@ for collectionName, collectionDetails in data.items():
         hadith["chapter"] = getChapterDetails(collectionName, hadith["reference"])
 
 inputFile.close
-outputFile = open('../../hadith-api/info_new.json', 'w', encoding="utf-8")
+outputFile = open('../../hadith-api/info.json', 'w', encoding="utf-8")
 outputFile.write(json.dumps(data, indent=4, ensure_ascii=False))
 outputFile.close

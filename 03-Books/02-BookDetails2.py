@@ -11,7 +11,7 @@ def getHadithNumber(hadith):
     return hadith["hadithnumber"]
 
 
-inputFile = open("../../hadith-api/info.json", "r", encoding="utf-8")
+inputFile = open("../hadith-api/info.json", "r", encoding="utf-8")
 data = json.load(inputFile)
 
 bookList = {}
@@ -19,7 +19,7 @@ bookList = {}
 currentBook = ""
 
 for collectionName, collectionDetails in data.items():
-    outputFile = open("../../hadith-api/updates/sections/" +
+    outputFile = open("../hadith-api/updates/sections/" +
                       collectionName + ".json", "w", encoding="utf-8")
     bookList = {
         "name": collectionDetails["metadata"]["name"],
@@ -41,6 +41,8 @@ for collectionName, collectionDetails in data.items():
                 chapterObject[collectionName + " - " +
                               str(hadith["reference"]["book"])][0] = getHadithNumber(hadith)
         else:
+            # print("--------------" + str(hadith["reference"]["book"]))
+            # print(bookList)
             bookList["books"][str(hadith["reference"]["book"])]["minHadith"] = getHadithNumber(hadith)
             bookList["books"][str(hadith["reference"]["book"])]["maxHadith"] = getHadithNumber(hadith)
 

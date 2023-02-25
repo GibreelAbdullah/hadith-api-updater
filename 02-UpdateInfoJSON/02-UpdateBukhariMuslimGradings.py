@@ -1,6 +1,6 @@
 import json
 
-inputFile = open('../../hadith-api/info.json','r+',encoding="utf-8")
+inputFile = open('../hadith-api/info.json','r+',encoding="utf-8")
 data = json.load(inputFile)
 
 for collectionName, collectionDetails in data.items():
@@ -20,5 +20,6 @@ for collectionName, collectionDetails in data.items():
 					})
 inputFile.seek(0) # rewind
 inputFile.write(json.dumps(data, indent=4, ensure_ascii=False))
+inputFile.truncate()
 
 inputFile.close

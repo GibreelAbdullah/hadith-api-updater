@@ -3,7 +3,7 @@
 import sqlite3
 import json
 
-conn = sqlite3.connect("../hadith.db")
+conn = sqlite3.connect("hadith.db")
 
 
 def getCollectionFullName(shortName):
@@ -92,7 +92,7 @@ def getChapterDetails(collectionName, hadithReference):
     }
 
 
-inputFile = open('../../hadith-api/info.json', 'r', encoding="utf-8")
+inputFile = open('../hadith-api/info.json', 'r+', encoding="utf-8")
 data = json.load(inputFile)
 
 for collectionName, collectionDetails in data.items():
@@ -100,7 +100,9 @@ for collectionName, collectionDetails in data.items():
     for hadith in data[collectionName]["hadiths"]:
         hadith["chapter"] = getChapterDetails(collectionName, hadith["reference"])
 
+# inputFile.close
+# outputFile = open('../hadith-api/info.json', 'w', encoding="utf-8")
+inputFile.seek(0)
+inputFile.write(json.dumps(data, indent=4, ensure_ascii=False))
+inputFile.truncate()
 inputFile.close
-outputFile = open('../../hadith-api/info.json', 'w', encoding="utf-8")
-outputFile.write(json.dumps(data, indent=4, ensure_ascii=False))
-outputFile.close

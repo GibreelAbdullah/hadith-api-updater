@@ -3,11 +3,23 @@
 import sqlite3
 import json
 
-conn = sqlite3.connect("../hadith.db")
+def getCollectionFullName(shortName):
+    mapping = {
+        "bukhari": "Sahih al Bukhari",
+        "muslim": "Sahih Muslim",
+        "nasai": "Sunan an Nasai",
+        "abudawud": "Sunan Abu Dawud",
+        "tirmidhi": "Jami At Tirmidhi",
+        "ibnmajah": "Sunan Ibn Majah",
+        "malik": "Muwatta Malik",
+    }
+    return mapping.get(shortName, " ")
+
+conn = sqlite3.connect("hadith.db")
 
 cursor = conn.execute(
     '''SELECT
-	c.name,
+	c.title_en,
 	b.title,
 	b.title_en
 from
@@ -18,13 +30,15 @@ order by
 	b.collection_id, b.order_in_collection'''
 )
 results = cursor.fetchall()
-inputFile = open('../../hadith-api/info.json','r',encoding="utf-8")
+inputFile = open('../hadith-api/info.json','r+',encoding="utf-8")
 data = json.load(inputFile)
 
 for collectionName, collectionDetails in data.items():
     sectionList = {}
     for row in results:
-        if(collectionName == row[0]):
+        # print(collectionName)
+        # print(row[0])
+        if(getCollectionFullName(collectionName) == row[0]):
             for sectionId, sectionName in data[collectionName]["metadata"]["sections"].items():
                 if(sectionName == row[2]):
                     sectionList[sectionId] = {
@@ -43,14 +57,15 @@ for collectionName, collectionDetails in data.items():
                     }
     data[collectionName]["metadata"]["sections"] = sectionList
 
+inputFile.seek(0)
+inputFile.write(json.dumps(data, indent=4, ensure_ascii=False))
+inputFile.truncate()
 inputFile.close
 
-outputFile = open('../../hadith-api/info.json','w',encoding="utf-8")
-outputFile.write(json.dumps(data, indent=4, ensure_ascii=False))
 
-outputFileMin = open('../../hadith-api/info.min.json','w',encoding="utf-8")
+outputFileMin = open('../hadith-api/info.min.json','w',encoding="utf-8")
 outputFileMin.write(json.dumps(data, separators=(',', ':'), ensure_ascii=False))
 
-outputFile.close
+outputFileMin.close
 
 print("info.json created")

@@ -3,7 +3,7 @@
 import sqlite3
 import json
 
-conn = sqlite3.connect("../../hadith-search-api/hadith_search_full.db")
+conn = sqlite3.connect("../hadith-search-api/hadith_search_full.db")
 
 cursor = conn.execute(
     '''SELECT

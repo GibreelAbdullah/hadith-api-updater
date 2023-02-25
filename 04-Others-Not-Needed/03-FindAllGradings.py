@@ -1,7 +1,7 @@
 
 import json
 
-inputFile = open('../../hadith-api/info.json','r',encoding="utf-8")
+inputFile = open('../hadith-api/info.json','r',encoding="utf-8")
 data = json.load(inputFile)
 
 gradeset = set(())

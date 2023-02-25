@@ -2,7 +2,7 @@
 
 import json
 
-inputFile = open('../info.json','r',encoding="utf-8")
+inputFile = open('../hadith-api/info.json','r',encoding="utf-8")
 data = json.load(inputFile)
 
 def formatNumber(num):

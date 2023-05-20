@@ -102,6 +102,7 @@ for collectionName, collectionDetails in data.items():
 
 # inputFile.close
 # outputFile = open('../hadith-api/info.json', 'w', encoding="utf-8")
+
 inputFile.seek(0)
 inputFile.write(json.dumps(data, indent=4, ensure_ascii=False))
 inputFile.truncate()

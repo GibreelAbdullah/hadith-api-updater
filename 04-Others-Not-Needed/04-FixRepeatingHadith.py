@@ -65,7 +65,7 @@ cursor = mydb.cursor()
 # conn = sqlite3.connect("hadith.db")
 
 cursor.execute(
-    """SELECT collection, hadithNumber from HadithTable where hadithNumber like '%,%' and collection = 'nasai'"""
+    """SELECT collection, hadithNumber from HadithTable where hadithNumber like '%,%' and collection = 'tirmidhi'"""
 )
 results = cursor.fetchall()
 
@@ -76,7 +76,7 @@ dir_list = os.listdir(path)
 
 # print(dir_list)
 
-matchingCollections = list(filter(lambda string: "nasai" in string, dir_list))
+matchingCollections = list(filter(lambda string: "tirmidhi" in string, dir_list))
 print(matchingCollections)
 for collection in matchingCollections:
     print(collection)    

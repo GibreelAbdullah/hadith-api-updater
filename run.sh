@@ -1,5 +1,8 @@
 # !/bin/sh
-python3 ./01-Collections/collection_details.py
+echo '' >> ../hadith-api/.gitignore
+echo 'editions' >> ../hadith-api/.gitignore
+cp -r 01-Collections/updates/ ../hadith-api/
+python3 ./01-Collections/01-CollectionDetails.py
 
 python3 ./02-UpdateInfoJSON/01-ArabicChapterNames.py
 python3 ./02-UpdateInfoJSON/02-UpdateBukhariMuslimGradings.py

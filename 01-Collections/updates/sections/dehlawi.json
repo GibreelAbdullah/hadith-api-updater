@@ -1,0 +1,11 @@
+{
+    "name": "Forty Hadith of Shah Waliullah Dehlawi",
+    "books": {
+        "1": {
+            "eng-name": "Forty Hadith of Shah Waliullah Dehlawi",
+            "ara-name": "الأربعين شاه ولي الله الدهلوي",
+            "minHadith": 1,
+            "maxHadith": 40
+        }
+    }
+}

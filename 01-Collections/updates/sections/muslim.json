@@ -1,0 +1,347 @@
+{
+    "name": "Sahih Muslim",
+    "books": {
+        "0": {
+            "eng-name": "Introduction",
+            "ara-name": "المقدمة",
+            "minHadith": 1,
+            "maxHadith": 7557
+        },
+        "1": {
+            "eng-name": "The Book of Faith",
+            "ara-name": "كتاب الإيمان",
+            "minHadith": 8,
+            "maxHadith": 222
+        },
+        "2": {
+            "eng-name": "The Book of Purification",
+            "ara-name": "كتاب الطهارة",
+            "minHadith": 223,
+            "maxHadith": 292
+        },
+        "3": {
+            "eng-name": "The Book of Menstruation",
+            "ara-name": "كتاب الحيض",
+            "minHadith": 293,
+            "maxHadith": 376
+        },
+        "4": {
+            "eng-name": "The Book of Prayers ",
+            "ara-name": "كتاب الصلاة",
+            "minHadith": 377,
+            "maxHadith": 519
+        },
+        "5": {
+            "eng-name": "The Book of Mosques and Places of Prayer",
+            "ara-name": "كتاب الْمَسَاجِدِ وَمَوَاضِعِ الصَّلاَةِ",
+            "minHadith": 520,
+            "maxHadith": 684
+        },
+        "6": {
+            "eng-name": "The Book of Prayer - Travellers",
+            "ara-name": "كتاب صلاة المسافرين وقصرها",
+            "minHadith": 685,
+            "maxHadith": 843
+        },
+        "7": {
+            "eng-name": "The Book of Prayer - Friday",
+            "ara-name": "كتاب الجمعة",
+            "minHadith": 844,
+            "maxHadith": 883
+        },
+        "8": {
+            "eng-name": "The Book of Prayer - Two Eids",
+            "ara-name": "كتاب صلاة العيدين",
+            "minHadith": 884,
+            "maxHadith": 893
+        },
+        "9": {
+            "eng-name": "The Book of Prayer - Rain",
+            "ara-name": "كتاب صلاة الاستسقاء‏",
+            "minHadith": 894,
+            "maxHadith": 900
+        },
+        "10": {
+            "eng-name": "The Book of Prayer - Eclipses",
+            "ara-name": "كتاب الكسوف",
+            "minHadith": 901,
+            "maxHadith": 915
+        },
+        "11": {
+            "eng-name": "The Book of Prayer - Funerals",
+            "ara-name": "كتاب الجنائز",
+            "minHadith": 916,
+            "maxHadith": 978
+        },
+        "12": {
+            "eng-name": "The Book of Zakat",
+            "ara-name": "كتاب الزكاة",
+            "minHadith": 979,
+            "maxHadith": 989
+        },
+        "13": {
+            "eng-name": "The Book of Fasting ",
+            "ara-name": "كتاب الصيام",
+            "minHadith": 1079,
+            "maxHadith": 1170
+        },
+        "14": {
+            "eng-name": "The Book of I'tikaf",
+            "ara-name": "كتاب الاعتكاف",
+            "minHadith": 1171,
+            "maxHadith": 1176
+        },
+        "15": {
+            "eng-name": "The Book of Pilgrimage",
+            "ara-name": "كتاب الحج",
+            "minHadith": 1177,
+            "maxHadith": 1399
+        },
+        "16": {
+            "eng-name": "The Book of Marriage",
+            "ara-name": "كتاب النكاح",
+            "minHadith": 154,
+            "maxHadith": 1443
+        },
+        "17": {
+            "eng-name": "The Book of Suckling",
+            "ara-name": "كتاب الرضاع",
+            "minHadith": 1444,
+            "maxHadith": 1470
+        },
+        "18": {
+            "eng-name": "The Book of Divorce ",
+            "ara-name": "كتاب الطلاق",
+            "minHadith": 1471,
+            "maxHadith": 938
+        },
+        "19": {
+            "eng-name": "The Book of Invoking Curses",
+            "ara-name": "كتاب اللعان",
+            "minHadith": 1492,
+            "maxHadith": 1500
+        },
+        "20": {
+            "eng-name": "The Book of Emancipating Slaves",
+            "ara-name": "كتاب العتق",
+            "minHadith": 1501,
+            "maxHadith": 1510
+        },
+        "21": {
+            "eng-name": "The Book of Transactions",
+            "ara-name": "كتاب البيوع",
+            "minHadith": 1511,
+            "maxHadith": 1550
+        },
+        "22": {
+            "eng-name": "The Book of Musaqah",
+            "ara-name": "كتاب المساقاة",
+            "minHadith": 1551,
+            "maxHadith": 1613
+        },
+        "23": {
+            "eng-name": "The Book of the Rules of Inheritance",
+            "ara-name": "كتاب الفرائض",
+            "minHadith": 1614,
+            "maxHadith": 1619
+        },
+        "24": {
+            "eng-name": "The Book of Gifts",
+            "ara-name": "كتاب الهبات",
+            "minHadith": 1620,
+            "maxHadith": 1626
+        },
+        "25": {
+            "eng-name": "The Book of Wills",
+            "ara-name": "كتاب الوصية",
+            "minHadith": 1627,
+            "maxHadith": 1637
+        },
+        "26": {
+            "eng-name": "The Book of Vows",
+            "ara-name": "كتاب النذر",
+            "minHadith": 1638,
+            "maxHadith": 1645
+        },
+        "27": {
+            "eng-name": "The Book of Oaths",
+            "ara-name": "كتاب الأيمان",
+            "minHadith": 1646,
+            "maxHadith": 997
+        },
+        "28": {
+            "eng-name": "The Book of Oaths, Muharibin, Qasas (Retaliation), and Diyat (Blood Money)",
+            "ara-name": "كتاب القسامة والمحاربين والقصاص والديات",
+            "minHadith": 1669,
+            "maxHadith": 1683
+        },
+        "29": {
+            "eng-name": "The Book of Legal Punishments",
+            "ara-name": "كتاب الحدود",
+            "minHadith": 1684,
+            "maxHadith": 1710
+        },
+        "30": {
+            "eng-name": "The Book of Judicial Decisions",
+            "ara-name": "كتاب الأقضية",
+            "minHadith": 1711,
+            "maxHadith": 1721
+        },
+        "31": {
+            "eng-name": "The Book of Lost Property",
+            "ara-name": "كتاب اللقطة",
+            "minHadith": 1722,
+            "maxHadith": 1729
+        },
+        "32": {
+            "eng-name": "The Book of Jihad and Expeditions",
+            "ara-name": "كتاب الجهاد والسير",
+            "minHadith": 1730,
+            "maxHadith": 1817
+        },
+        "33": {
+            "eng-name": "The Book on Government",
+            "ara-name": "كتاب الإمارة",
+            "minHadith": 1818,
+            "maxHadith": 715
+        },
+        "34": {
+            "eng-name": "The Book of Hunting, Slaughter, and what may be Eaten",
+            "ara-name": "كتاب الصيد والذبائح وما يؤكل من الحيوان",
+            "minHadith": 1929,
+            "maxHadith": 1959
+        },
+        "35": {
+            "eng-name": "The Book of Sacrifices",
+            "ara-name": "كتاب الأضاحى",
+            "minHadith": 1960,
+            "maxHadith": 1978
+        },
+        "36": {
+            "eng-name": "The Book of Drinks",
+            "ara-name": "كتاب الأشربة",
+            "minHadith": 977,
+            "maxHadith": 2064
+        },
+        "37": {
+            "eng-name": "The Book of Clothes and Adornment",
+            "ara-name": "كتاب اللباس والزينة",
+            "minHadith": 2065,
+            "maxHadith": 2130
+        },
+        "38": {
+            "eng-name": "The Book of Manners and Etiquette",
+            "ara-name": "كتاب الآداب",
+            "minHadith": 2131,
+            "maxHadith": 2159
+        },
+        "39": {
+            "eng-name": "The Book of Greetings",
+            "ara-name": "كتاب السلام",
+            "minHadith": 2160,
+            "maxHadith": 2245
+        },
+        "40": {
+            "eng-name": "The Book Concerning the Use of Correct Words",
+            "ara-name": "كتاب الألفاظ من الأدب وغيرها",
+            "minHadith": 2246,
+            "maxHadith": 2254
+        },
+        "41": {
+            "eng-name": "The Book of Poetry",
+            "ara-name": "كتاب الشعر",
+            "minHadith": 2255,
+            "maxHadith": 2260
+        },
+        "42": {
+            "eng-name": "The Book of Dreams",
+            "ara-name": "كتاب الرؤيا",
+            "minHadith": 2261,
+            "maxHadith": 2275
+        },
+        "43": {
+            "eng-name": "The Book of Virtues",
+            "ara-name": "كتاب الفضائل",
+            "minHadith": 151,
+            "maxHadith": 2380
+        },
+        "44": {
+            "eng-name": "The Book of the Merits of the Companions",
+            "ara-name": "كتاب فضائل الصحابة رضى الله تعالى عنهم",
+            "minHadith": 2381,
+            "maxHadith": 2547
+        },
+        "45": {
+            "eng-name": "The Book of Virtue, Enjoining Good Manners, and Joining of the Ties of Kinship",
+            "ara-name": "كتاب البر والصلة والآداب",
+            "minHadith": 2548,
+            "maxHadith": 2642
+        },
+        "46": {
+            "eng-name": "The Book of Destiny",
+            "ara-name": "كتاب القدر",
+            "minHadith": 2643,
+            "maxHadith": 2664
+        },
+        "47": {
+            "eng-name": "The Book of Knowledge",
+            "ara-name": "كتاب العلم",
+            "minHadith": 2665,
+            "maxHadith": 2674
+        },
+        "48": {
+            "eng-name": "The Book Pertaining to the Remembrance of Allah, Supplication, Repentance and Seeking Forgiveness ",
+            "ara-name": "كتاب الذكر والدعاء والتوبة والاستغفار",
+            "minHadith": 2675,
+            "maxHadith": 2735
+        },
+        "49": {
+            "eng-name": "The Book of Heart-Melting Traditions",
+            "ara-name": "كتاب الرقاق",
+            "minHadith": 2736,
+            "maxHadith": 2743
+        },
+        "50": {
+            "eng-name": "The Book of Repentance",
+            "ara-name": "كتاب التوبة",
+            "minHadith": 2675,
+            "maxHadith": 2771
+        },
+        "51": {
+            "eng-name": "Characteristics of The Hypocrites And Rulings Concerning Them",
+            "ara-name": "كتاب صفات المنافقين وأحكامهم",
+            "minHadith": 2772,
+            "maxHadith": 2784
+        },
+        "52": {
+            "eng-name": "Characteristics of the Day of Judgment, Paradise, and Hell",
+            "ara-name": "كتاب صفة القيامة والجنة والنار",
+            "minHadith": 2785,
+            "maxHadith": 2821
+        },
+        "53": {
+            "eng-name": "The Book of Paradise, its Description, its Bounties and its Inhabitants",
+            "ara-name": "كتاب الجنة وصفة نعيمها وأهلها",
+            "minHadith": 2822,
+            "maxHadith": 2879
+        },
+        "54": {
+            "eng-name": "The Book of Tribulations and Portents of the Last Hour",
+            "ara-name": "كتاب الفتن وأشراط الساعة",
+            "minHadith": 2880,
+            "maxHadith": 2955
+        },
+        "55": {
+            "eng-name": "The Book of Zuhd and Softening of Hearts ",
+            "ara-name": "كتاب الزهد والرقائق",
+            "minHadith": 2956,
+            "maxHadith": 2009
+        },
+        "56": {
+            "eng-name": "The Book of Commentary on the Qur'an",
+            "ara-name": "كتاب التفسير",
+            "minHadith": 3015,
+            "maxHadith": 3033
+        }
+    }
+}

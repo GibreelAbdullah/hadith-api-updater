@@ -1,0 +1,377 @@
+{
+    "name": "Muwatta Malik",
+    "books": {
+        "0": {
+            "eng-name": "",
+            "ara-name": "",
+            "minHadith": 167,
+            "maxHadith": 1748
+        },
+        "1": {
+            "eng-name": "The Times of Prayer",
+            "ara-name": "كتاب وقوت الصلاة",
+            "minHadith": 1,
+            "maxHadith": 31
+        },
+        "2": {
+            "eng-name": "Purity",
+            "ara-name": "كتاب الطهارة",
+            "minHadith": 32,
+            "maxHadith": 145
+        },
+        "3": {
+            "eng-name": "Prayer",
+            "ara-name": "كتاب الصلاة",
+            "minHadith": 146,
+            "maxHadith": 221
+        },
+        "4": {
+            "eng-name": "Forgetfulness in Prayer",
+            "ara-name": "كتاب السهو",
+            "minHadith": 222,
+            "maxHadith": 224
+        },
+        "5": {
+            "eng-name": "Jumu'a",
+            "ara-name": "كتاب الجمعة",
+            "minHadith": 225,
+            "maxHadith": 245
+        },
+        "6": {
+            "eng-name": "Prayer in Ramadan",
+            "ara-name": "كتاب الصلاة فى رمضان",
+            "minHadith": 246,
+            "maxHadith": 253
+        },
+        "7": {
+            "eng-name": "Tahajjud",
+            "ara-name": "كتاب صلاة الليل",
+            "minHadith": 254,
+            "maxHadith": 286
+        },
+        "8": {
+            "eng-name": "Prayer in Congregation",
+            "ara-name": "كتاب صلاة الجماعة",
+            "minHadith": 287,
+            "maxHadith": 325
+        },
+        "9": {
+            "eng-name": "Shortening the Prayer",
+            "ara-name": "كتاب قصر الصلاة فى السفر",
+            "minHadith": 326,
+            "maxHadith": 427
+        },
+        "10": {
+            "eng-name": "The Two 'Ids",
+            "ara-name": "كتاب العيدين",
+            "minHadith": 428,
+            "maxHadith": 440
+        },
+        "11": {
+            "eng-name": "The Fear Prayer",
+            "ara-name": "كتاب صلاة الخوف",
+            "minHadith": 441,
+            "maxHadith": 444
+        },
+        "12": {
+            "eng-name": "The Eclipse Prayer",
+            "ara-name": "كتاب صلاة الكسوف",
+            "minHadith": 445,
+            "maxHadith": 448
+        },
+        "13": {
+            "eng-name": "Asking for Rain",
+            "ara-name": "كتاب الاستسقاء",
+            "minHadith": 449,
+            "maxHadith": 454
+        },
+        "14": {
+            "eng-name": "The Qibla",
+            "ara-name": "كتاب القبلة",
+            "minHadith": 455,
+            "maxHadith": 469
+        },
+        "15": {
+            "eng-name": "The Qur'an",
+            "ara-name": "كتاب القرآن",
+            "minHadith": 470,
+            "maxHadith": 519
+        },
+        "16": {
+            "eng-name": "Burials",
+            "ara-name": "كتاب الجنائز",
+            "minHadith": 520,
+            "maxHadith": 577
+        },
+        "17": {
+            "eng-name": "Zakat",
+            "ara-name": "كتاب الزكاة",
+            "minHadith": 578,
+            "maxHadith": 629
+        },
+        "18": {
+            "eng-name": "Fasting",
+            "ara-name": "كتاب الصيام",
+            "minHadith": 630,
+            "maxHadith": 689
+        },
+        "19": {
+            "eng-name": "I'tikaf in Ramadan",
+            "ara-name": "كتاب الاعتكاف",
+            "minHadith": 690,
+            "maxHadith": 704
+        },
+        "20": {
+            "eng-name": "Hajj",
+            "ara-name": "كتاب الحج",
+            "minHadith": 705,
+            "maxHadith": 957
+        },
+        "21": {
+            "eng-name": "Jihad",
+            "ara-name": "كتاب الجهاد",
+            "minHadith": 959,
+            "maxHadith": 1008
+        },
+        "22": {
+            "eng-name": "Vows and Oaths",
+            "ara-name": "كتاب النذور والأيمان",
+            "minHadith": 1009,
+            "maxHadith": 1027
+        },
+        "23": {
+            "eng-name": "Sacrificial Animals",
+            "ara-name": "كتاب الضحايا",
+            "minHadith": 1028,
+            "maxHadith": 1041
+        },
+        "24": {
+            "eng-name": "Slaughtering Animals",
+            "ara-name": "كتاب الذبائح",
+            "minHadith": 1042,
+            "maxHadith": 1051
+        },
+        "25": {
+            "eng-name": "Game",
+            "ara-name": "كتاب الصيد",
+            "minHadith": 1052,
+            "maxHadith": 1066
+        },
+        "26": {
+            "eng-name": "The 'Aqiqa",
+            "ara-name": "كتاب العقيقة",
+            "minHadith": 1067,
+            "maxHadith": 1073
+        },
+        "27": {
+            "eng-name": "Fara'id",
+            "ara-name": "كتاب الفرائض",
+            "minHadith": 1074,
+            "maxHadith": 1089
+        },
+        "28": {
+            "eng-name": "Marriage",
+            "ara-name": "كتاب النكاح",
+            "minHadith": 1091,
+            "maxHadith": 1149
+        },
+        "29": {
+            "eng-name": "Divorce",
+            "ara-name": "كتاب الطلاق",
+            "minHadith": 1150,
+            "maxHadith": 1271
+        },
+        "30": {
+            "eng-name": "Suckling",
+            "ara-name": "كتاب الرضاع",
+            "minHadith": 1272,
+            "maxHadith": 1289
+        },
+        "31": {
+            "eng-name": "Business Transactions",
+            "ara-name": "كتاب البيوع",
+            "minHadith": 1290,
+            "maxHadith": 1385
+        },
+        "32": {
+            "eng-name": "Qirad",
+            "ara-name": "كتاب القراض",
+            "minHadith": 1386,
+            "maxHadith": 1387
+        },
+        "33": {
+            "eng-name": "Sharecropping",
+            "ara-name": "كتاب المساقاة",
+            "minHadith": 1388,
+            "maxHadith": 1389
+        },
+        "34": {
+            "eng-name": "Renting Land",
+            "ara-name": "كتاب كراء الأرض",
+            "minHadith": 1390,
+            "maxHadith": 1394
+        },
+        "35": {
+            "eng-name": "Pre-emption in Property",
+            "ara-name": "كتاب الشفعة",
+            "minHadith": 1395,
+            "maxHadith": 1398
+        },
+        "36": {
+            "eng-name": "Judgements",
+            "ara-name": "كتاب الأقضية",
+            "minHadith": 1399,
+            "maxHadith": 1454
+        },
+        "37": {
+            "eng-name": "Wills and Testaments",
+            "ara-name": "كتاب الوصية",
+            "minHadith": 1455,
+            "maxHadith": 1463
+        },
+        "38": {
+            "eng-name": "Setting Free and Wala'",
+            "ara-name": "كتاب العتق والولاء",
+            "minHadith": 1464,
+            "maxHadith": 1488
+        },
+        "39": {
+            "eng-name": "The Mukatab",
+            "ara-name": "كتاب المكاتب",
+            "minHadith": 1489,
+            "maxHadith": 1496
+        },
+        "40": {
+            "eng-name": "The Mudabbar",
+            "ara-name": "كتاب المدبر",
+            "minHadith": 1497,
+            "maxHadith": 1499
+        },
+        "41": {
+            "eng-name": "Hudud",
+            "ara-name": "كتاب الحدود",
+            "minHadith": 1500,
+            "maxHadith": 1536
+        },
+        "42": {
+            "eng-name": "Drinks",
+            "ara-name": "كتاب الأشربة",
+            "minHadith": 1537,
+            "maxHadith": 1551
+        },
+        "43": {
+            "eng-name": "Blood-Money",
+            "ara-name": "كتاب العقول",
+            "minHadith": 1552,
+            "maxHadith": 1595
+        },
+        "44": {
+            "eng-name": "The Oath of Qasama",
+            "ara-name": "كتاب القسامة",
+            "minHadith": 1596,
+            "maxHadith": 1597
+        },
+        "45": {
+            "eng-name": "Madina",
+            "ara-name": "كتاب الْمَدِينَةِ",
+            "minHadith": 1598,
+            "maxHadith": 1622
+        },
+        "46": {
+            "eng-name": "The Decree",
+            "ara-name": "كتاب القدر",
+            "minHadith": 1623,
+            "maxHadith": 1632
+        },
+        "47": {
+            "eng-name": "Good Character",
+            "ara-name": "كتاب حسن الخلق",
+            "minHadith": 1633,
+            "maxHadith": 1650
+        },
+        "48": {
+            "eng-name": "Dress",
+            "ara-name": "كتاب اللباس",
+            "minHadith": 1651,
+            "maxHadith": 1670
+        },
+        "49": {
+            "eng-name": "The Description of the Prophet, may Allah Bless Him and Grant Him Peace",
+            "ara-name": "كتاب صفة النبى صلى الله عليه وسلم",
+            "minHadith": 1671,
+            "maxHadith": 1710
+        },
+        "50": {
+            "eng-name": "The Evil Eye",
+            "ara-name": "كتاب العين",
+            "minHadith": 1711,
+            "maxHadith": 1729
+        },
+        "51": {
+            "eng-name": "Hair",
+            "ara-name": "كتاب الشعر",
+            "minHadith": 1730,
+            "maxHadith": 1746
+        },
+        "52": {
+            "eng-name": "Visions",
+            "ara-name": "كتاب الرؤيا",
+            "minHadith": 1747,
+            "maxHadith": 1755
+        },
+        "53": {
+            "eng-name": "Greetings",
+            "ara-name": "كتاب السلام",
+            "minHadith": 1756,
+            "maxHadith": 1762
+        },
+        "54": {
+            "eng-name": "General Subjects",
+            "ara-name": "كتاب الاستئذان",
+            "minHadith": 1763,
+            "maxHadith": 1807
+        },
+        "55": {
+            "eng-name": "The Oath of Allegiance",
+            "ara-name": "كتاب البيعة",
+            "minHadith": 1808,
+            "maxHadith": 1810
+        },
+        "56": {
+            "eng-name": "Speech",
+            "ara-name": "كتاب الكلام",
+            "minHadith": 1811,
+            "maxHadith": 1838
+        },
+        "57": {
+            "eng-name": "Jahannam",
+            "ara-name": "كتاب جهنم",
+            "minHadith": 1839,
+            "maxHadith": 1840
+        },
+        "58": {
+            "eng-name": "Sadaqa",
+            "ara-name": "كتاب الصدقة",
+            "minHadith": 1841,
+            "maxHadith": 1855
+        },
+        "59": {
+            "eng-name": "Knowledge",
+            "ara-name": "كتاب العلم",
+            "minHadith": 1856,
+            "maxHadith": 1856
+        },
+        "60": {
+            "eng-name": "The Supplication of the Unjustly Wronged",
+            "ara-name": "كتاب دعوة المظلوم",
+            "minHadith": 1857,
+            "maxHadith": 1857
+        },
+        "61": {
+            "eng-name": "The Names of the Prophet, may Allah Bless Him and Grant Him Peace",
+            "ara-name": "كتاب أسماء النبى صلى الله عليه وسلم",
+            "minHadith": 1858,
+            "maxHadith": 1858
+        }
+    }
+}

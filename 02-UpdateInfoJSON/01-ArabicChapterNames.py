@@ -33,6 +33,19 @@ results = cursor.fetchall()
 inputFile = open('../hadith-api/info.json','r+',encoding="utf-8")
 data = json.load(inputFile)
 
+# TODO: Take section name already in info.json as eng-name and from db as ara-name;
+			# CURRENT FORMAT
+            # "sections": {
+			# 	"0": "",
+			# 	"1": "Forty Hadith of Shah Waliullah Dehlawi"
+			# },
+#  Required Format
+            # "sections": {
+            #     "0": {
+            #         "eng-name": "",
+            #         "ara-name": ""
+            #       }
+            # }
 for collectionName, collectionDetails in data.items():
     sectionList = {}
     for row in results:
@@ -54,6 +67,17 @@ for collectionName, collectionDetails in data.items():
                     sectionList[sectionId] = {
                         "eng-name" : 'Introduction',
                         "ara-name" : 'المقدمة'
+                    }
+                else:
+                    sectionList[sectionId] = {
+                        "eng-name" : sectionName,
+                        "ara-name" : ''
+                    }
+        else:
+            for sectionId, sectionName in data[collectionName]["metadata"]["sections"].items():
+                sectionList[sectionId] = {
+                        "eng-name" : sectionName,
+                        "ara-name" : ''
                     }
     data[collectionName]["metadata"]["sections"] = sectionList
 

@@ -1,0 +1,11 @@
+{
+    "BOOK_SHORT_NAME": {
+        "metadata": {
+            "name": "BOOK FULL NAME",
+            "sections": {},
+            "last_hadithnumber": "LAST HADITH NUMBER",
+            "section_details": {}
+        },
+        "hadiths": []
+    }
+}

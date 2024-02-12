@@ -41,6 +41,24 @@
             "eng-name": "Muwatta Malik",
             "ara-name": "موطأ مالك",
             "order": 7
+        },
+        {
+            "name": "qudsi",
+            "eng-name": "Forty Hadith Qudsi",
+            "ara-name": "الحديث القدسي",
+            "order": 8
+        },
+        {
+            "name": "nawawi",
+            "eng-name": "Forty Hadith of an-Nawawi",
+            "ara-name": "الأربعين النووية",
+            "order": 9
+        },
+        {
+            "name": "dehlawi",
+            "eng-name": "Forty Hadith of Shah Waliullah Dehlawi",
+            "ara-name": "الأربعين شاه ولي الله الدهلوي",
+            "order": 10
         }
     ]
 }

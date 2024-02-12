@@ -21,6 +21,9 @@ currentBook = ""
 for collectionName, collectionDetails in data.items():
     outputFile = open("../hadith-api/updates/sections/" +
                       collectionName + ".json", "w", encoding="utf-8")
+    
+    if (collectionDetails["metadata"]["sections"] == {}):
+        continue
     bookList = {
         "name": collectionDetails["metadata"]["name"],
         "books": collectionDetails["metadata"]["sections"],

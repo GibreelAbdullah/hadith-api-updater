@@ -22,20 +22,20 @@ editionsFile.close()
 
 collectionsFile = open('./01-Collections/collectionList.json','r',encoding="utf-8")
 collectionsData = json.load(collectionsFile)
-
-for collection in collectionsData["collections"]:
-    for collectionLanguage in collectionDict:
-        if (collection["eng-name"] == collectionLanguage["name"]):
-            collection["availableLanguages"] = collectionLanguage["availableLanguages"]
+for categories in collectionsData["collections"]:
+    for collection in categories["books"]:
+        for collectionLanguage in collectionDict:
+            if (collection["eng-name"] == collectionLanguage["name"]):
+                collection["availableLanguages"] = collectionLanguage["availableLanguages"]
 
 # print(collectionsData)
 
-outputFile = open('../hadith-api/updates/collections/collections.json','w',encoding="utf-8")
+outputFile = open('./01-Collections/updates/collections/collections.json','w',encoding="utf-8")
 outputFile.write(json.dumps(collectionsData, indent=4, ensure_ascii=False))
 
 outputFile.close
 
-outputFileMin = open('../hadith-api/updates/collections/collections.min.json','w',encoding="utf-8")
+outputFileMin = open('./01-Collections/updates/collections/collections.min.json','w',encoding="utf-8")
 outputFileMin.write(json.dumps(collectionsData, separators=(',', ':'), ensure_ascii=False))
 
 outputFileMin.close

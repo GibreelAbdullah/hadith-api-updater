@@ -3,7 +3,9 @@
     "books": {
         "0": {
             "eng-name": "",
-            "ara-name": ""
+            "ara-name": "",
+            "minHadith": 0,
+            "maxHadith": 0
         },
         "1": {
             "eng-name": "Purification (Kitab Al-Taharah)",

@@ -1,9 +1,15 @@
 {
-    "name": "Forty Hadith of Shah Waliullah Dehlawi",
+    "name": "Forty Hadith of an-Nawawi",
     "books": {
+        "0": {
+            "eng-name": "",
+            "ara-name": "",
+            "minHadith": 0,
+            "maxHadith": 0
+        },
         "1": {
             "eng-name": "Forty Hadith of an-Nawawi",
-            "ara-name": "الأربعين النووية",
+            "ara-name": "",
             "minHadith": 1,
             "maxHadith": 42
         }

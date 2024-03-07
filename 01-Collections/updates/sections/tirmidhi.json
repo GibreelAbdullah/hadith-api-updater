@@ -3,7 +3,9 @@
     "books": {
         "0": {
             "eng-name": "",
-            "ara-name": ""
+            "ara-name": "",
+            "minHadith": 0,
+            "maxHadith": 0
         },
         "1": {
             "eng-name": "The Book on Purification",
@@ -291,7 +293,7 @@
             "eng-name": "Chapters on Supplication",
             "ara-name": "كتاب الدعوات عن رسول الله صلى الله عليه وسلم",
             "minHadith": 3370,
-            "maxHadith": 3604
+            "maxHadith": 3604.1
         },
         "49": {
             "eng-name": "Chapters on Virtues",

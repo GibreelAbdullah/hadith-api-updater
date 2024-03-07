@@ -1,7 +1,6 @@
 # WARNING - RUN ONLY ONCE, IF RAN TWICE THE SECTIONS JSON WILL BECOME EMPTY SINCE ORIGINAL FILE IS BEING MODIFIED
 
 import sqlite3
-import json
 
 conn = sqlite3.connect("../hadith-search-api/hadith_search_full.db")
 

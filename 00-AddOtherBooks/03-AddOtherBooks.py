@@ -13,37 +13,37 @@ dataMap = {}
 hadithMap = {}
 mapForHadithNumber = {}
 for row in cursor:
-    f = open(row[15] + "-" + getCollectionShortName(row[4]) + ".txt", "a")
+    f = open(row[15] + "-" + getCollectionShortName(row[1]) + ".txt", "a")
     splitArabicNumberList = row[11].split(", ")
     for splitArabicNumber in splitArabicNumberList:
-        mapForHadithNumber[row[4]] = mapForHadithNumber.get(row[4],0) + 1
-        f.write(str(mapForHadithNumber[row[4]]) + " | " + (row[8] + " " + row[9] + " " + row[10]).replace("\n","<br>")  + "\n")
+        mapForHadithNumber[row[1]] = mapForHadithNumber.get(row[1],0) + 1
+        f.write(str(mapForHadithNumber[row[1]]) + " | " + (row[8] + " " + row[9] + " " + row[10]).replace("\n","<br>")  + "\n")
         hadithData = {
-            "hadithnumber" : mapForHadithNumber[row[4]], 
-            "arabicnumber" : getArabicNumberWithNumerals(row[11]), # Get a number by changing (a,b,c,d) with (.01,.02,.02,.04)
+            "hadithnumber" : mapForHadithNumber[row[1]], 
+            "arabicnumber" : getArabicNumberWithNumerals(splitArabicNumber), # Get a number by changing (a,b,c,d) with (.01,.02,.02,.04)
             "grades":[],
             "reference":{
                         "book":1,
-                        "hadith": getArabicNumberWithNumerals(row[11])
+                        "hadith": getArabicNumberWithNumerals(splitArabicNumber)
                     }
         }
-        if(row[4]) in hadithMap:
-            hadithMap[row[4]].append(hadithData)
+        if(row[1]) in hadithMap:
+            hadithMap[row[1]].append(hadithData)
         else:
-            hadithMap[row[4]] = [hadithData]
-    dataMap[getCollectionShortName(row[4])] = {
+            hadithMap[row[1]] = [hadithData]
+    dataMap[getCollectionShortName(row[1])] = {
         "metadata" : {
-            "name": row[4],
+            "name": row[1],
             "sections":{},
             "last_hadithnumber": row[6],
             "section_details": {}
         },
-        "hadiths": hadithMap.get(row[4])
+        "hadiths": hadithMap.get(row[1])
     }
     f.close()
 
 # print(dataMap)
-inputFile = open('../hadith-api/info.json','r+',encoding="utf-8")
+inputFile = open('00-AddOtherBooks/info.json','r+',encoding="utf-8")
 data : dict = json.load(inputFile)
 
 for collectionName, collectionDetails in dataMap.items():

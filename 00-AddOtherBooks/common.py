@@ -1,3 +1,4 @@
+# Change the h.collection_id for books and hadith table only contains arabic hadith, for english hadith use hadith_en table.
 query = '''
     select
         c.title collection_name_ara,
@@ -32,9 +33,9 @@ query = '''
 			and ch.id = h.chapter_id
     where
         h.collection_id in (
-            102
+            50
         ) '''
-# //50,110,113,115,130,200,300
+#  , 110,113, 115, 130, 200, 300
 def getCollectionShortName(fullName):
     mapping = {
         "Forty Hadith of an-Nawawi" : "nawawi",

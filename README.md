@@ -2,31 +2,12 @@
 
 This repo is used to add new functionality to the hadith-api repo.
 
-in hadith-api
+Follow the steps below.
 
-```bash
-git checkout 2
-git reset --hard origin/1
-```
-- in case there are new books added run below script to update editions.json
-
-  - put new book txt in start folder and then
-  - ```bash
-    node apiscript.js update
-    ```
-
-run 
-
-```bash
-run.sh
-```
-
-update apiscript.js to change `process.env.CI` to `true`.
-
-copy all files from `database/line-by-line` and put in `start` folder.
-
-run 
-
-```bash
-node apiscript.js update
-```
+1. In `hadith-api` reset to the latest origin `git reset --hard origin/1`
+2. Make the relevant changes. Will have to update `info.json` and hadith text file which should be placed in `start` folder.
+3. Push the changes to github.
+4. Run the github action named `CI` using `update` or `create` command.
+5. Once completed pull the changes to local.
+6. run `./run.sh` to update the data in `hadith-api` with extra info.
+7. run `./run2.sh` to copy the changes from `hadith-api` to `hadith-api-master` which is just `hadith-api` but on branch `2` which is used by `HadithHub`

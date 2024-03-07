@@ -1,0 +1,2 @@
+rm -r ../hadith-api-master/updates/ && rm -r ../hadith-api-master/editions/ && cp -r ../hadith-api/updates/ ../hadith-api-master/ && cp -r ../hadith-api/editions/ ../hadith-api-master/ && cd ../hadith-api-master
+git add . && git commit -m "Added Arabic Musnad Imam Abu Hanifa" && git push

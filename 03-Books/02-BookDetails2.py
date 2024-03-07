@@ -12,45 +12,52 @@ def getHadithNumber(hadith):
 
 
 inputFile = open("../hadith-api/info.json", "r", encoding="utf-8")
-data = json.load(inputFile)
+info = json.load(inputFile)
 
 bookList = {}
 
 currentBook = ""
 
-for collectionName, collectionDetails in data.items():
-    outputFile = open("../hadith-api/updates/sections/" +
-                      collectionName + ".json", "w", encoding="utf-8")
+for infoCollectionName, infoCollectionDetails in info.items():
+    outputFile = open("./01-Collections/updates/sections/" +
+                      infoCollectionName + ".json", "w", encoding="utf-8")
     
-    if (collectionDetails["metadata"]["sections"] == {}):
+    if (infoCollectionDetails["metadata"]["sections"] == {}):
         continue
     bookList = {
-        "name": collectionDetails["metadata"]["name"],
-        "books": collectionDetails["metadata"]["sections"],
+        "name": infoCollectionDetails["metadata"]["name"],
+        "books": infoCollectionDetails["metadata"]["sections"],
     }
-
-    chapterObject = {}
-    minHadithNumber = 99999
-    maxHadithNumber = -99999
-    for hadith in collectionDetails["hadiths"]:
-        if (collectionName + " - " + str(hadith["reference"]["book"])) in chapterObject:
-            if (chapterObject[collectionName + " - " + str(hadith["reference"]["book"])][0] < hadith["hadithnumber"]):
-                bookList["books"][str(hadith["reference"]["book"])]["maxHadith"] = getHadithNumber(hadith)
-                chapterObject[collectionName + " - " +
-                              str(hadith["reference"]["book"])][1] = getHadithNumber(hadith)
-                
-            if (chapterObject[collectionName + " - " + str(hadith["reference"]["book"])][0] > hadith["hadithnumber"]):
-                bookList["books"][str(hadith["reference"]["book"])]["minHadith"] = getHadithNumber(hadith)
-                chapterObject[collectionName + " - " +
-                              str(hadith["reference"]["book"])][0] = getHadithNumber(hadith)
+    
+    for section_id in list(bookList["books"]):
+        if (infoCollectionDetails["metadata"]["section_details"].get(section_id,"") != ""):    
+            bookList["books"][section_id]["minHadith"] = infoCollectionDetails["metadata"]["section_details"][section_id]["hadithnumber_first"]
+            bookList["books"][section_id]["maxHadith"] = infoCollectionDetails["metadata"]["section_details"][section_id]["hadithnumber_last"]
         else:
-            # print("--------------" + str(hadith["reference"]["book"]))
-            # print(bookList)
-            bookList["books"][str(hadith["reference"]["book"])]["minHadith"] = getHadithNumber(hadith)
-            bookList["books"][str(hadith["reference"]["book"])]["maxHadith"] = getHadithNumber(hadith)
+            bookList["books"].pop(section_id)
+    # chapterObject = {}
+    # minHadithNumber = 99999
+    # maxHadithNumber = -99999
+    # for infoHadith in infoCollectionDetails["metadata"]:
+    #     bookList["books"][str(infoHadith["reference"]["book"])]["maxHadith"]
+        # if (infoCollectionName + " - " + str(infoHadith["reference"]["book"])) in chapterObject:
+        #     if (chapterObject[infoCollectionName + " - " + str(infoHadith["reference"]["book"])][0] < infoHadith["hadithnumber"]):
+        #         bookList["books"][str(infoHadith["reference"]["book"])]["maxHadith"] = getHadithNumber(infoHadith)
+        #         chapterObject[infoCollectionName + " - " +
+        #                       str(infoHadith["reference"]["book"])][1] = getHadithNumber(infoHadith)
+                
+        #     if (chapterObject[infoCollectionName + " - " + str(infoHadith["reference"]["book"])][0] > infoHadith["hadithnumber"]):
+        #         bookList["books"][str(infoHadith["reference"]["book"])]["minHadith"] = getHadithNumber(infoHadith)
+        #         chapterObject[infoCollectionName + " - " +
+        #                       str(infoHadith["reference"]["book"])][0] = getHadithNumber(infoHadith)
+        # else:
+        #     # print("--------------" + str(hadith["reference"]["book"]))
+        #     # print(bookList)
+        #     bookList["books"][str(infoHadith["reference"]["book"])]["minHadith"] = getHadithNumber(infoHadith)
+        #     bookList["books"][str(infoHadith["reference"]["book"])]["maxHadith"] = getHadithNumber(infoHadith)
 
-            chapterObject[collectionName + " - " + str(hadith["reference"]["book"])] = [
-                getHadithNumber(hadith), getHadithNumber(hadith)]
+        #     chapterObject[infoCollectionName + " - " + str(infoHadith["reference"]["book"])] = [
+        #         getHadithNumber(infoHadith), getHadithNumber(infoHadith)]
         # try:
         #     if "minHadith" in bookList["books"][str(hadith["reference"]["book"])]:
         #         if(minHadithNumber > hadith["hadithnumber"]):

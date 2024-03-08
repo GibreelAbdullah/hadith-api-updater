@@ -9,5 +9,8 @@ Follow the steps below.
 3. Push the changes to github.
 4. Run the github action named `CI` using `update` or `create` command.
 5. Once completed pull the changes to local.
-6. run `./run.sh` to update the data in `hadith-api` with extra info.
-7. run `./run2.sh` to copy the changes from `hadith-api` to `hadith-api-master` which is just `hadith-api` but on branch `2` which is used by `HadithHub`
+6. Run `./run.sh` to update the data in `hadith-api` with extra info.
+7. Copy files from `database/linebyline` folder in `hadith-api` to `start` folder.
+8. Modify `apiscript.js` to change `process.env.CI` to `true`.
+9. Run `node apiscript.js update`
+10. Run `./run2.sh` to copy the changes from `hadith-api` to `hadith-api-master` which is just `hadith-api` but on branch `2` which is used by `HadithHub`

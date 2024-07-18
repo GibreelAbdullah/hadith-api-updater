@@ -102,7 +102,7 @@
             "books": [
                 {
                     "name": "malik",
-                    "eng-name": "Muwatta Imam Malik",
+                    "eng-name": "Muwatta Malik",
                     "ara-name": "موطأ مالك",
                     "availableLanguages": [
                         "ara",
@@ -148,7 +148,7 @@
                 },
                 {
                     "name": "nawawi",
-                    "eng-name": "Forty Hadith of Imam an-Nawawi",
+                    "eng-name": "Forty Hadith of an-Nawawi",
                     "ara-name": "الأربعين النووية",
                     "availableLanguages": [
                         "ara",

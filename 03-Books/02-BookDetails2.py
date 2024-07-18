@@ -20,7 +20,7 @@ currentBook = ""
 
 for infoCollectionName, infoCollectionDetails in info.items():
     outputFile = open("./01-Collections/updates/sections/" +
-                      infoCollectionName + ".json", "w", encoding="utf-8")
+                      infoCollectionName + ".min.json", "w", encoding="utf-8")
     
     if (infoCollectionDetails["metadata"]["sections"] == {}):
         continue
@@ -76,5 +76,5 @@ for infoCollectionName, infoCollectionDetails in info.items():
         #             bookList["books"][str(hadith["reference"]["book"])]["maxHadith"] = hadith["hadithnumber"]
     # print(bookList)
     # print(chapterObject)
-    outputFile.write(json.dumps(bookList, indent=4, ensure_ascii=False))
+    outputFile.write(json.dumps(bookList, separators=(',', ':'), ensure_ascii=False))
     outputFile.close()

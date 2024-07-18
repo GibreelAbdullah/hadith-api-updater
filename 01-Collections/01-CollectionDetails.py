@@ -30,11 +30,6 @@ for categories in collectionsData["collections"]:
 
 # print(collectionsData)
 
-outputFile = open('./01-Collections/updates/collections/collections.json','w',encoding="utf-8")
-outputFile.write(json.dumps(collectionsData, indent=4, ensure_ascii=False))
-
-outputFile.close
-
 outputFileMin = open('./01-Collections/updates/collections/collections.min.json','w',encoding="utf-8")
 outputFileMin.write(json.dumps(collectionsData, separators=(',', ':'), ensure_ascii=False))
 

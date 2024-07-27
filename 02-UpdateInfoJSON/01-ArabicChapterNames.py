@@ -13,7 +13,7 @@ mapping = {
     "abuhanifa" : "Musnad Imam Abu Hanifa"
 }
 
-inputFile = open('../hadith-api/info.json','r+',encoding="utf-8")
+inputFile = open('./hadith-api/info.json','r+',encoding="utf-8")
 input_data = json.load(inputFile)
 
 #  Current Format
@@ -49,7 +49,7 @@ inputFile.truncate()
 inputFile.close
 
 
-outputFileMin = open('../hadith-api/info.min.json','w',encoding="utf-8")
+outputFileMin = open('./hadith-api/info.min.json','w',encoding="utf-8")
 outputFileMin.write(json.dumps(input_data, separators=(',', ':'), ensure_ascii=False))
 
 outputFileMin.close

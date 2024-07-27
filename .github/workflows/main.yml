@@ -1,0 +1,68 @@
+name: Run Scripts
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  hadith-api-master:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  # Fetch all history for all branches and tags
+    
+    - name: Sparse Checkout
+      run: |
+        if [ -d "hadith-api" ]; then
+          rm -rf hadith-api
+        fi
+        git clone --depth 1 --no-checkout https://github.com/fawazahmed0/hadith-api.git 
+        cd hadith-api
+        git config core.sparseCheckout true
+        echo "editions.json" >> .git/info/sparse-checkout
+        echo "info.json" >> .git/info/sparse-checkout
+        echo "apiscript.js" >> .git/info/sparse-checkout
+        echo "utilities.js" >> .git/info/sparse-checkout
+        echo "package.json" >> .git/info/sparse-checkout
+        echo "database/linebyline" >> .git/info/sparse-checkout
+        git checkout HEAD
+        cd ..
+
+    - name: List checked out files
+      run: |
+        ls hadith-api/
+
+    - name: Move data files to start folder
+      run: |
+        mkdir ./hadith-api/start
+        cp -r ./hadith-api/database/linebyline/* ./hadith-api/start
+
+    - name: Make scripts executable
+      run: |
+        chmod +x run.sh
+        chmod +x run2.sh
+
+    - name: Run first script
+      run: |
+        ls
+        pwd
+        ./run.sh
+
+    - name: Run second script
+      run: ./run2.sh
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add hadith-api-master/
+        git commit -m "Automated update"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

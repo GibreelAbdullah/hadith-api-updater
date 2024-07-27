@@ -11,7 +11,7 @@ def getHadithNumber(hadith):
     return hadith["hadithnumber"]
 
 
-inputFile = open("../hadith-api/info.json", "r", encoding="utf-8")
+inputFile = open("./hadith-api/info.json", "r", encoding="utf-8")
 info = json.load(inputFile)
 
 bookList = {}
@@ -19,7 +19,7 @@ bookList = {}
 currentBook = ""
 
 for infoCollectionName, infoCollectionDetails in info.items():
-    outputFile = open("./01-Collections/updates/sections/" +
+    outputFile = open("./hadith-api-master/updates/sections/" +
                       infoCollectionName + ".min.json", "w", encoding="utf-8")
     
     if (infoCollectionDetails["metadata"]["sections"] == {}):

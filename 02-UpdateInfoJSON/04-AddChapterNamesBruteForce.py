@@ -1,24 +1,9 @@
 # The brute force method
 
-import sqlite3
+import pickle
 import json
 
-conn = sqlite3.connect("hadith.db")
-
-
-def getCollectionFullName(shortName):
-    mapping = {
-        "bukhari": "Sahih al Bukhari",
-        "muslim": "Sahih Muslim",
-        "nasai": "Sunan an Nasai",
-        "abudawud": "Sunan Abu Dawud",
-        "tirmidhi": "Jami At Tirmidhi",
-        "ibnmajah": "Sunan Ibn Majah",
-        "malik": "Muwatta Malik",
-    }
-    return mapping.get(shortName, " ")
-
-
+"""
 def getDBData():
     query = '''
 			SELECT
@@ -66,10 +51,30 @@ def getDBData():
 			'''
     cursor = conn.execute(query)
     return cursor.fetchall()
+"""
 
+def removeDecimal(chapterNumber):
+    if isinstance(chapterNumber, float):
+        return int(chapterNumber)
+    else:
+        return chapterNumber
 
-dbData = getDBData()
+def getCollectionFullName(shortName):
+    mapping = {
+        "bukhari": "Sahih al-Bukhari",
+        "muslim": "Sahih Muslim",
+        "nasai": "Sunan an-Nasa'i",
+        "abudawud": "Sunan Abi Dawud",
+        "tirmidhi": "Jami` at-Tirmidhi",
+        "ibnmajah": "Sunan Ibn Majah",
+        "malik": "Muwatta Malik",
+        "musnad": "Musnad Ahmad",
+    }
+    return mapping.get(shortName, " ")
 
+# reading dbData from the file
+with open('02-UpdateInfoJSON/dbData.pickle', 'rb') as f:
+    dbData = pickle.load(f)
 
 def getChapterDetails(collectionName, hadithReference):
     fullName = getCollectionFullName(collectionName)
@@ -79,7 +84,7 @@ def getChapterDetails(collectionName, hadithReference):
         for data in dbData:
             if (data[0] ==  fullName and int(data[1]) == bookNumber and int(data[2]) == hadithNumber):
                 return {
-                    "id": None if data[7] == '' or data[7] is None else int(data[7]),
+                    "id": None if data[7] == '' or data[7] is None else removeDecimal(data[7]),
                     "ara-name": data[4] if data[4] is None else data[4].replace('‏',''),
                     "eng-name": data[5],
                     "isFirstHadith": bool(data[6]),
@@ -92,7 +97,7 @@ def getChapterDetails(collectionName, hadithReference):
     }
 
 
-inputFile = open('../hadith-api/info.json', 'r+', encoding="utf-8")
+inputFile = open('./hadith-api/info.json', 'r+', encoding="utf-8")
 data = json.load(inputFile)
 
 for collectionName, collectionDetails in data.items():
@@ -101,7 +106,7 @@ for collectionName, collectionDetails in data.items():
         hadith["chapter"] = getChapterDetails(collectionName, hadith["reference"])
 
 # inputFile.close
-# outputFile = open('../hadith-api/info.json', 'w', encoding="utf-8")
+# outputFile = open('./hadith-api/info.json', 'w', encoding="utf-8")
 
 inputFile.seek(0)
 inputFile.write(json.dumps(data, indent=4, ensure_ascii=False))

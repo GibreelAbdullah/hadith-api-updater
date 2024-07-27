@@ -70,7 +70,7 @@
 #     return cursor.fetchall()
 
 
-# inputFile = open('../hadith-api/info.json', 'r', encoding="utf-8")
+# inputFile = open('./hadith-api/info.json', 'r', encoding="utf-8")
 # data = json.load(inputFile)
 
 # for collectionName, collectionDetails in data.items():
@@ -157,11 +157,11 @@
 #         j = j+1
 # inputFile.close
 
-# outputFile = open('../hadith-api/info_new.json', 'w', encoding="utf-8")
+# outputFile = open('./hadith-api/info_new.json', 'w', encoding="utf-8")
 # outputFile.write(json.dumps(data, indent=4, ensure_ascii=False))
 # outputFile.close
 
-# # outputFileMin = open('../hadith-api/info.min.json','w',encoding="utf-8")
+# # outputFileMin = open('./hadith-api/info.min.json','w',encoding="utf-8")
 # # outputFileMin.write(json.dumps(data, separators=(',', ':'), ensure_ascii=False))
 
 # # outputFileMin.close

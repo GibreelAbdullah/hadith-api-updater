@@ -1,13 +1,28 @@
-# !/bin/sh
-# echo '' >> ../hadith-api/.gitignore
-# echo 'editions' >> ../hadith-api/.gitignore
-python3 ./01-Collections/01-CollectionDetails.py
+#!/bin/bash
 
-python3 ./02-UpdateInfoJSON/01-ArabicChapterNames.py
-python3 ./02-UpdateInfoJSON/02-UpdateBukhariMuslimGradings.py
-python3 ./02-UpdateInfoJSON/04-AddChapterNamesBruteForce.py
-python3 ./02-UpdateInfoJSON/05-AddUnmergedInfoJson.py
+# Enable exit on error
+set -e
 
-python3 ./03-Books/02-BookDetails2.py
+# Function to run Python script and check its exit status
+# Function to run a command and check its exit status
+run_command() {
+    echo "Running: $@"
+    "$@"
+    local status=$?
+    if [ $status -ne 0 ]; then
+        echo "Error: Command '$@' failed with exit status $status"
+        exit $status
+    fi
+}
 
-cp -r 01-Collections/updates/ ../hadith-api/
+
+run_command python3 ./01-Collections/01-CollectionDetails.py
+
+run_command python3 ./02-UpdateInfoJSON/01-ArabicChapterNames.py
+run_command python3 ./02-UpdateInfoJSON/02-UpdateBukhariMuslimGradings.py
+run_command python3 ./02-UpdateInfoJSON/04-AddChapterNamesBruteForce.py
+run_command python3 ./02-UpdateInfoJSON/05-AddUnmergedInfoJson.py
+
+run_command python3 ./03-Books/02-BookDetails2.py
+
+echo "All scripts completed successfully"

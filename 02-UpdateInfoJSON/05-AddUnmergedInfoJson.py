@@ -1,7 +1,7 @@
 import json
 import os
 
-inputFile = open('../hadith-api/info.json', 'r+', encoding="utf-8")
+inputFile = open('./hadith-api/info.json', 'r+', encoding="utf-8")
 data:dict = json.load(inputFile)
 
 infoFiles = os.listdir('./02-UpdateInfoJSON/InfoJsons')

@@ -2,7 +2,7 @@
 # List of collections in the database and the languages they are available in
 import json
  
-editionsFile = open('../hadith-api/editions.json','r',encoding="utf-8")
+editionsFile = open('./hadith-api/editions.json','r',encoding="utf-8")
 editionsData = json.load(editionsFile)
 
 collectionDict = []
@@ -30,7 +30,7 @@ for categories in collectionsData["collections"]:
 
 # print(collectionsData)
 
-outputFileMin = open('./01-Collections/updates/collections/collections.min.json','w',encoding="utf-8")
+outputFileMin = open('./hadith-api-master/updates/collections/collections.min.json','w',encoding="utf-8")
 outputFileMin.write(json.dumps(collectionsData, separators=(',', ':'), ensure_ascii=False))
 
 outputFileMin.close

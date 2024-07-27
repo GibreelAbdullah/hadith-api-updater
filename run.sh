@@ -22,7 +22,17 @@ run_command python3 ./02-UpdateInfoJSON/01-ArabicChapterNames.py
 run_command python3 ./02-UpdateInfoJSON/02-UpdateBukhariMuslimGradings.py
 run_command python3 ./02-UpdateInfoJSON/04-AddChapterNamesBruteForce.py
 run_command python3 ./02-UpdateInfoJSON/05-AddUnmergedInfoJson.py
-
 run_command python3 ./03-Books/02-BookDetails2.py
+
+run_command cd ./hadith-api
+run_command npm install
+run_command npx playwright install
+run_command export CI=true
+run_command node apiscript.js update
+run_command cp -r ../02-UpdateInfoJSON/hadithTexts/* ./start/
+run_command node apiscript.js create
+run_command cd ..
+run_command rm -rf ./hadith-api-master/editions/
+run_command cp -r ./hadith-api/editions/ ./hadith-api-master/ && cd ./hadith-api-master && find ./editions/ -type f ! \( -name "*.min.json" -o -name "*.html" \) -delete
 
 echo "All scripts completed successfully"

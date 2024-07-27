@@ -13,10 +13,14 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+      uses: aws-actions/configure-aws-credentials@v1
       with:
         fetch-depth: 0  # Fetch all history for all branches and tags
-    
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
     - name: Sparse Checkout
       run: |
         if [ -d "hadith-api" ]; then
@@ -34,28 +38,27 @@ jobs:
         git checkout HEAD
         cd ..
 
-    - name: List checked out files
-      run: |
-        ls hadith-api/
-
     - name: Move data files to start folder
       run: |
         mkdir ./hadith-api/start
         cp -r ./hadith-api/database/linebyline/* ./hadith-api/start
 
-    - name: Make scripts executable
+    - name: Make scripts executable and run it
       run: |
         chmod +x run.sh
-        chmod +x run2.sh
-
-    - name: Run first script
-      run: |
-        ls
-        pwd
         ./run.sh
 
-    - name: Run second script
-      run: ./run2.sh
+
+    - name: Create Search Database And Deploy
+      run: |
+        cd hadith-search-api-2.0/
+        sudo apt install zip
+        python3 01-CreateDatabases.py
+        chmod +x 02-ZipAndDeployWorkerLambdas.sh
+        ./02-ZipAndDeployWorkerLambdas.sh
+        chmod +x 03-ZipAndDeploySearchLambdas.sh
+        ./03-ZipAndDeploySearchLambdas.sh
+        cd ..
 
     - name: Commit and push changes
       run: |

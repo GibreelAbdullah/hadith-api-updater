@@ -18,7 +18,7 @@ run_command npm install
 run_command npx playwright install
 run_command export CI=true
 run_command node apiscript.js update
-run_command cp -r ../02-UpdateInfoJSON/hadithTexts/* ./hadith-api/start/
+run_command cp -r ../02-UpdateInfoJSON/hadithTexts/* ./start/
 run_command node apiscript.js create
 run_command cd ..
 run_command rm -rf ./hadith-api-master/editions/

@@ -23,6 +23,7 @@ run_command python3 ./02-UpdateInfoJSON/02-UpdateBukhariMuslimGradings.py
 run_command python3 ./02-UpdateInfoJSON/04-AddChapterNamesBruteForce.py
 run_command python3 ./02-UpdateInfoJSON/05-AddUnmergedInfoJson.py
 run_command python3 ./03-Books/02-BookDetails2.py
+run_command python3 ./AddGradingsToSpecificHadith/AddGradings.py
 
 run_command cd ./hadith-api
 run_command npm install

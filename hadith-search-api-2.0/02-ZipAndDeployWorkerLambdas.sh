@@ -26,7 +26,7 @@ for zip_file in zippedData/*.zip; do
 
     # Check if the function already exists (ignore error if it doesn't)
     if aws lambda get-function --function-name "$function_name" > /dev/null 2>&1; then
-        echo "Function $function_name already exists. Ignoring it."
+        echo "Function $function_name already exists. Updating it."
         aws lambda update-function-code \
             --function-name "$function_name" \
             --zip-file fileb://"$zip_file" \

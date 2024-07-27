@@ -59,10 +59,10 @@ def lambda_handler(event, context):
     # The list of Lambda function names to call (from input event)
     all_function_names: list = os.environ.get('FUNCTION_NAME', '').split(',')
     query_params = event.get('queryStringParameters', {})
-    if(query_params.get('type') == 'search'):
-        return search(query_params, all_function_names, client)
-    elif(query_params.get('type') == 'random'):
-        return random(query_params, all_function_names, client)
+    # if(query_params.get('type') == 'search'):
+    return search(query_params, all_function_names, client)
+    # elif(query_params.get('type') == 'random'):
+    #     return random(query_params, all_function_names, client)
 
 def search(query_params, all_function_names, client):
     lang = query_params.get('language_code')
@@ -121,14 +121,14 @@ def search(query_params, all_function_names, client):
                 })
     return sorted(results, key=lambda x: x[9])
 
-def random(query_params, all_function_names, client):
-    length = 99999
-    queryParam = query_params.get("l")
-    if (not(queryParam is None or queryParam == '')):
-        length = int(queryParam)
-    cursor = conn.execute(randomQuery(length))
-    data = cursor.fetchall()
-    return data
+# def random(query_params, all_function_names, client):
+#     length = 99999
+#     queryParam = query_params.get("l")
+#     if (not(queryParam is None or queryParam == '')):
+#         length = int(queryParam)
+#     cursor = conn.execute(randomQuery(length))
+#     data = cursor.fetchall()
+#     return data
 
 if __name__ == '__main__':
     print(lambda_handler({

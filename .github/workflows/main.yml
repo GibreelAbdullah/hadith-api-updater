@@ -57,8 +57,8 @@ jobs:
         python3 01-CreateDatabases.py
         chmod +x 02-ZipAndDeployWorkerLambdas.sh
         ./02-ZipAndDeployWorkerLambdas.sh
-        chmod +x 03-ZipAndDeploySearchLambdas.sh
-        ./03-ZipAndDeploySearchLambdas.sh
+        chmod +x 03-ZipAndDeployControllerLambda.sh
+        ./03-ZipAndDeployControllerLambda.sh
         cd ..
 
     - name: Commit and push changes

@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect('data/ara-abudawud1/hadith.db', check_same_thread=False)    
+conn = sqlite3.connect('hadith.db', check_same_thread=False)    
 
 
 def randomQuery(length):

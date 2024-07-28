@@ -4,6 +4,7 @@ from query import *
 def removeSpecialChars(query_param):
     query_param = re.sub(
         r'[\u0000-\u002F \u003A-\u0040 \u005B-\u0060 \u007B-\u007F]', ' ', query_param)
+    query_param = query_param.strip()
     query_param = re.sub(r'[ ]+', ' OR ', query_param)
     return query_param
 

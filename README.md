@@ -1,16 +1,4 @@
-##This repo and hadith-api repo should have the same parent directory.
+![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/GibreelAbdullah/hadith-api-updater)
+[![jsDelivr rank](https://badgen.net/jsdelivr/rank/gh/GibreelAbdullah/hadith-api-updater)](https://github.com/GibreelAbdullah/hadith-api-updater)
 
-This repo is used to add new functionality to the hadith-api repo.
-
-Follow the steps below.
-
-1. In `hadith-api` reset to the latest origin `git reset --hard origin/1`
-2. Make the relevant changes. Will have to update `info.json` and hadith text file which should be placed in `start` folder.
-3. Push the changes to github.
-4. Run the github action named `CI` using `update` or `create` command.
-5. Once completed pull the changes to local.
-6. Run `./run.sh` to update the data in `hadith-api` with extra info.
-7. Copy files from `database/linebyline` folder in `hadith-api` to `start` folder.
-8. Modify `apiscript.js` to change `process.env.CI` to `true`.
-9. Run `node apiscript.js update`
-10. Run `./run2.sh` to copy the changes from `hadith-api` to `hadith-api-master` which is just `hadith-api` but on branch `2` which is used by `HadithHub`
+TODO: UPDATE README

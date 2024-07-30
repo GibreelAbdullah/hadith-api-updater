@@ -1,6 +1,6 @@
 # WARNING - RUN ONLY ONCE, IF RAN TWICE THE SECTIONS JSON WILL BECOME EMPTY SINCE ORIGINAL FILE IS BEING MODIFIED
 import json
-from ChapterNamesMapping import chapter_names_mapping
+from BookNamesMapping import book_names_mapping
 
 mapping = {
     "bukhari" : "Sahih al Bukhari",
@@ -32,11 +32,11 @@ sectionList = {}
 
 for input_collection_name, input_collection_details in input_data.items():
     for input_section_id, input_section_name in input_collection_details["metadata"]["sections"].items():
-        if (chapter_names_mapping.get(mapping.get(input_collection_name,""),"") == ""):
+        if (book_names_mapping.get(mapping.get(input_collection_name,""),"") == ""):
             input_collection_details["metadata"]["sections"][input_section_id] = {"eng-name": input_section_name, "ara-name": ""}
         else:
-            input_collection_details["metadata"]["sections"][input_section_id] = {"eng-name": input_section_name, "ara-name": chapter_names_mapping.get(mapping.get(input_collection_name,"")).get(input_section_name, "")}
-# for collection_name_full, chapter_name_map in chapter_names_mapping.items():
+            input_collection_details["metadata"]["sections"][input_section_id] = {"eng-name": input_section_name, "ara-name": book_names_mapping.get(mapping.get(input_collection_name,"")).get(input_section_name, "")}
+# for collection_name_full, chapter_name_map in book_names_mapping.items():
 #     if(input_data.get(mapping.get(collection_name_full,""),"") == ""):
 #        continue
 #     for sectionId, sectionName in input_data[mapping.get(collection_name_full,"")]["metadata"]["sections"].items():

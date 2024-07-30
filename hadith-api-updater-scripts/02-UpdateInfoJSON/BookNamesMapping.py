@@ -1,4 +1,4 @@
-chapter_names_mapping = {
+book_names_mapping = {
     "Sahih al Bukhari": {
         "Revelation": "كتاب بدء الوحى",
         "Belief": "كتاب الإيمان",

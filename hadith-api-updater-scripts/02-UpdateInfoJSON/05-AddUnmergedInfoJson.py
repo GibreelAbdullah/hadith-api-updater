@@ -4,9 +4,9 @@ import os
 inputFile = open('./hadith-api/info.json', 'r+', encoding="utf-8")
 data:dict = json.load(inputFile)
 
-infoFiles = os.listdir('./02-UpdateInfoJSON/InfoJsons')
+infoFiles = os.listdir('./hadith-api-updater-scripts/02-UpdateInfoJSON/InfoJsons')
 for file in infoFiles:
-    with open(os.path.join('./02-UpdateInfoJSON/InfoJsons', file), 'r', encoding="utf-8") as infoFile:
+    with open(os.path.join('./hadith-api-updater-scripts/02-UpdateInfoJSON/InfoJsons', file), 'r', encoding="utf-8") as infoFile:
         infoData = json.load(infoFile)
         data.update(infoData)
         infoFile.close()

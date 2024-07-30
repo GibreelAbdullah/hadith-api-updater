@@ -73,7 +73,7 @@ def getCollectionFullName(shortName):
     return mapping.get(shortName, " ")
 
 # reading dbData from the file
-with open('02-UpdateInfoJSON/dbData.pickle', 'rb') as f:
+with open('./hadith-api-updater-scripts/02-UpdateInfoJSON/dbData.pickle', 'rb') as f:
     dbData = pickle.load(f)
 
 def getChapterDetails(collectionName, hadithReference):

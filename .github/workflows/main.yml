@@ -41,8 +41,8 @@ jobs:
 
     - name: Make scripts executable and run it
       run: |
-        chmod +x run.sh
-        ./run.sh
+        chmod +x hadith-api-updater-scripts/run.sh
+        ./hadith-api-updater-scripts/run.sh
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1

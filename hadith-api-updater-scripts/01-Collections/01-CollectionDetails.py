@@ -20,7 +20,7 @@ for collectionList, collectionListDetails in editionsData.items():
 
 editionsFile.close()
 
-collectionsFile = open('./01-Collections/collectionList.json','r',encoding="utf-8")
+collectionsFile = open('./hadith-api-updater-scripts/01-Collections/collectionList.json','r',encoding="utf-8")
 collectionsData = json.load(collectionsFile)
 for categories in collectionsData["collections"]:
     for collection in categories["books"]:

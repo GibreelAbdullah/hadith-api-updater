@@ -1,7 +1,6 @@
 # HADITH API 2.0
 
-![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/GibreelAbdullah/hadith-api-updater)
-[![jsDelivr rank](https://badgen.net/jsdelivr/rank/gh/GibreelAbdullah/hadith-api-updater)](https://github.com/GibreelAbdullah/hadith-api-updater)
+[![](https://data.jsdelivr.com/v1/package/gh/GibreelAbdullah/hadith-api-updater/badge)](https://www.jsdelivr.com/package/gh/GibreelAbdullah/hadith-api-updater) [![jsDelivr rank](https://badgen.net/jsdelivr/rank/gh/GibreelAbdullah/hadith-api-updater)](https://github.com/GibreelAbdullah/hadith-api-updater)
 
 This Repository serves as the database for [HadithHub.com](https://www.hadithub.com). It has 3 sections.
 

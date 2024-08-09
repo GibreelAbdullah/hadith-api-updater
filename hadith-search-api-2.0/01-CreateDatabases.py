@@ -28,6 +28,7 @@ collectionDict = []
 
 collectionsFile = open("../hadith-api-master/updates/collections/collections.min.json")
 collectionsData = json.load(collectionsFile)
+print(collectionsData)
 collectionShortNameDict = {}
 for collectionCategories in collectionsData["collections"]:
     for collectionFileNameObject in collectionCategories["books"]:
@@ -67,9 +68,7 @@ for collectionList, collectionListDetails in editionsData.items():
                 gradings = gradings + grades["name"] + "::" + grades["grade"] + " && "
             if(gradings.endswith(" && ")):
                 gradings = gradings[:-4]
-
-            print(collectionShortNameDict)
-            print(hadith)
+            
             cursor.execute(
                 f"""INSERT INTO hadith
                 (hadithnumber,arabicnumber,text,grades,bookNumber,bookhadith,bookname,language,shortname)

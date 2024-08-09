@@ -27,7 +27,7 @@ editionsData = json.load(editionsFile)
 collectionDict = []
 
 collectionsFile = open("../hadith-api-master/updates/collections/collections.min.json")
- = json.load(collectionsFile)
+collectionsData = json.load(collectionsFile)
 print(collectionsData)
 collectionShortNameDict = {}
 for collectionCategories in collectionsData["collections"]:

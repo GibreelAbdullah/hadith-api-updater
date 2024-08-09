@@ -69,7 +69,7 @@ for collectionList, collectionListDetails in editionsData.items():
                 gradings = gradings[:-4]
 
             print(collectionShortNameDict)
-            print(hadith)
+            
             cursor.execute(
                 f"""INSERT INTO hadith
                 (hadithnumber,arabicnumber,text,grades,bookNumber,bookhadith,bookname,language,shortname)

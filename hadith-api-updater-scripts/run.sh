@@ -15,9 +15,6 @@ run_command() {
     fi
 }
 
-
-run_command python3 ./hadith-api-updater-scripts/01-Collections/01-CollectionDetails.py
-
 run_command python3 ./hadith-api-updater-scripts/02-UpdateInfoJSON/01-ArabicBookNames.py
 run_command python3 ./hadith-api-updater-scripts/02-UpdateInfoJSON/02-UpdateBukhariMuslimGradings.py
 run_command python3 ./hadith-api-updater-scripts/02-UpdateInfoJSON/04-AddChapterNamesBruteForce.py

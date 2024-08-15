@@ -1,5 +1,5 @@
 import re
-from query import *
+from lambdas.worker_lambda.query import *
 
 def removeSpecialChars(query_param):
     query_param = re.sub(

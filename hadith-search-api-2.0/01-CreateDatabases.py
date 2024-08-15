@@ -45,9 +45,7 @@ for collectionList, collectionListDetails in editionsData.items():
         conn = sqlite3.connect(path + "/hadith.db")
         cursor = conn.cursor()
         cursor.execute("DROP TABLE IF EXISTS hadith;")
-        cursor.execute("CREATE VIRTUAL TABLE IF NOT EXISTS hadith USING FTS5(hadithnumber,arabicnumber,text,grades,bookNumber,bookhadith,bookname,language,shortname, tokenize = 'porter unicode61 remove_diacritics 1');")
-
-
+        cursor.execute("CREATE VIRTUAL TABLE IF NOT EXISTS hadith USING FTS5(hadithnumber,arabicnumber,text,grades,bookNumber,bookhadith,bookname,language,shortname, tokenize = 'unicode61 remove_diacritics 1');")
             
         # for collectionDetails in collectionDict:
         print(collection["name"])

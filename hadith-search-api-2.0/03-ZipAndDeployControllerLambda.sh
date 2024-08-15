@@ -1,4 +1,7 @@
-zip controller.zip controller.py
+cd ./lambdas/controller_lambda/
+zip ../../controller.zip controller.py
+
+cd ../../
 
 WORKER_FUNCTION_NAMES_LIST=$(ls zippedData | sed 's/\.zip$//g' | tr '\n' ',')
 ROLE_ARN=$ROLE_ARN

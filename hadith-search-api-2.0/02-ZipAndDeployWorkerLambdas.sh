@@ -1,11 +1,14 @@
 mkdir -p zippedData
+WORKER_LAMBDA_DIR="./lambdas/worker_lambda"
 
 for dir in data/*; do
     if [ -d "$dir" ]; then
         subfolder=$(basename "$dir")
         (
-            cd "$dir" && zip -r "../../zippedData/${subfolder}.zip" hadith.db
-            cd "../../" && zip -r "zippedData/${subfolder}.zip" app.py query.py
+            cd "$dir"
+            zip -r "../../zippedData/${subfolder}.zip" hadith.db
+            cd "../../$WORKER_LAMBDA_DIR"
+            zip -r "../../zippedData/${subfolder}.zip" "app.py" "query.py"
         )
     fi
 done

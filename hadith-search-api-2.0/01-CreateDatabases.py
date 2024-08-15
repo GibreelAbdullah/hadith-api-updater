@@ -24,7 +24,7 @@ import os
 
 from lambdas.controller_lambda.simplify_arabic import simplify_arabic_text
 
-editionsFile = open("../../hadith-api/editions.json", "r", encoding="utf-8")
+editionsFile = open("../hadith-api/editions.json", "r", encoding="utf-8")
 editionsData = json.load(editionsFile)
 collectionDict = []
 

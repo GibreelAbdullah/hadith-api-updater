@@ -1,5 +1,5 @@
 cd ./lambdas/controller_lambda/
-zip ../../controller.zip controller.py
+zip ../../controller.zip controller.py simplify_arabic.py
 
 cd ../../
 

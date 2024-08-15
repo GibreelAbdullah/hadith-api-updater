@@ -1,7 +1,7 @@
 import json
 import os
 import concurrent.futures
-
+import boto3
 
 def merge_sorted_lists(list1, list2):
     merged_list = []
@@ -39,6 +39,11 @@ def get_functions_to_call(all_functions_list, lang_list, collection_list):
 
 
 def invoke_lambda(client, function_name, query):
+    if function_name.startswith('ara'):
+        from simplify_arabic import simplify_arabic_text
+        query = simplify_arabic_text(query)
+
+
     response = client.invoke(
         FunctionName=function_name,
         InvocationType='RequestResponse',  # Synchronous invocation

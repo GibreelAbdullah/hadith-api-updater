@@ -22,7 +22,9 @@ import json
 import sqlite3
 import os
 
-editionsFile = open("../hadith-api/editions.json", "r", encoding="utf-8")
+from lambdas.controller_lambda.simplify_arabic import simplify_arabic_text
+
+editionsFile = open("../../hadith-api/editions.json", "r", encoding="utf-8")
 editionsData = json.load(editionsFile)
 collectionDict = []
 
@@ -36,6 +38,8 @@ for collectionCategories in collectionsData["collections"]:
 
 for collectionList, collectionListDetails in editionsData.items():
     for collection in collectionListDetails["collection"]:
+        if(collection["name"].startswith("ara-") and collection["name"].endswith("1")):
+            continue
         collectionDict.append(
             {"name": collection["name"], "language": collection["name"][:3]}
         )
@@ -67,16 +71,20 @@ for collectionList, collectionListDetails in editionsData.items():
             if(gradings.endswith(" && ")):
                 gradings = gradings[:-4]
             
+            if(collection["name"].startswith("ara-")):
+                hadith_text = simplify_arabic_text(hadith["text"])
+            else:
+                hadith_text = hadith["text"]
+
             cursor.execute(
                 f"""INSERT INTO hadith
                 (hadithnumber,arabicnumber,text,grades,bookNumber,bookhadith,bookname,language,shortname)
                 VALUES(?,?,?,?,?,?,?,?,?);""",
                 (
-                    hadith["hadithnumber"],value,hadith["text"],gradings,hadith["reference"]["book"],hadith["reference"]["hadith"],data["metadata"]["name"],collection["language"],collectionShortNameDict[data["metadata"]["name"]]
+                    hadith["hadithnumber"],value,hadith_text,gradings,hadith["reference"]["book"],hadith["reference"]["hadith"],data["metadata"]["name"],collection["language"],collectionShortNameDict[data["metadata"]["name"]]
                 ),
             )
         print("complete")
-
             
         conn.commit()
         conn.close()

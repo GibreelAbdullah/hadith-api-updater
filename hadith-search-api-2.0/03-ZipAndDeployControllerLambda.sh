@@ -14,6 +14,7 @@ if aws lambda get-function --function-name "$FUNCTION_NAME" > /dev/null 2>&1; th
     aws lambda update-function-code \
         --function-name "$FUNCTION_NAME" \
         --zip-file fileb://controller.zip \
+        --environment Variables="{FUNCTION_NAME=\"${WORKER_FUNCTION_NAMES_LIST::-1}\"}" \
         --no-cli-pager
 else
     echo "Creating function $FUNCTION_NAME."

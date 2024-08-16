@@ -55,10 +55,12 @@ jobs:
       run: |
         cd hadith-search-api-2.0/
         python3 01-CreateDatabases.py
-        chmod +x 02-ZipAndDeployWorkerLambdas.sh
-        ./02-ZipAndDeployWorkerLambdas.sh
-        chmod +x 03-ZipAndDeployControllerLambda.sh
-        ./03-ZipAndDeployControllerLambda.sh
+        chmod +x 02-ZipAndDeployControllerLambda.sh
+        ./02-ZipAndDeployControllerLambda.sh
+        chmod +x 03-ZipAndDeployWorkerLambdas.sh
+        ./03-ZipAndDeployWorkerLambdas.sh
+        chmod +x 04-UpdateEnvVariablesControllerLambda.sh
+        ./04-UpdateEnvVariablesControllerLambda.sh
         cd ..
 
     - name: Commit and push changes

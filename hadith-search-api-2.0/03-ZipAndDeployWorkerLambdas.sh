@@ -1,4 +1,3 @@
-mkdir -p zippedData
 WORKER_LAMBDA_DIR="./lambdas/worker_lambda"
 
 for dir in data/*; do

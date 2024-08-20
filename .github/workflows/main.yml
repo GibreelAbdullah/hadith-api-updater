@@ -59,8 +59,6 @@ jobs:
         ./02-ZipAndDeployControllerLambda.sh
         chmod +x 03-ZipAndDeployWorkerLambdas.sh
         ./03-ZipAndDeployWorkerLambdas.sh
-        chmod +x 04-UpdateEnvVariablesControllerLambda.sh
-        ./04-UpdateEnvVariablesControllerLambda.sh
         cd ..
 
     - name: Commit and push changes

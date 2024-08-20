@@ -1,5 +1,6 @@
+mkdir -p zippedData
 cd ./lambdas/controller_lambda/
-zip ../../controller.zip controller.py simplify_arabic.py
+zip ../../controller.zip controller.py simplify_arabic.py hadith_map.json
 
 cd ../../
 
@@ -22,7 +23,6 @@ else
         --role "$ROLE_ARN" \
         --handler controller.lambda_handler \
         --zip-file fileb://controller.zip \
-        --environment Variables="{FUNCTION_NAME=\"${WORKER_FUNCTION_NAMES_LIST::-1}\"}" \
         --timeout 30 \
         --no-cli-pager
     aws lambda create-function-url-config --function-name $FUNCTION_NAME \

@@ -1,5 +1,4 @@
 import json
-import os
 import concurrent.futures
 import boto3
 
@@ -29,12 +28,14 @@ def merge_sorted_lists(list1, list2):
     return merged_list
 
 
-def get_functions_to_call(all_functions_list, lang_list, collection_list):
-    filtered_list = [
-        item for item in all_functions_list
-        if any(item.startswith(lang) for lang in lang_list) and
-        any(item.endswith(collection) for collection in collection_list)
-    ]
+def get_functions_to_call(lang_list, collection_list):
+    with open('hadith_map.json', 'r') as infile:
+        hadith_map = json.load(infile)
+
+    filtered_list = []
+    for key, value_list in hadith_map.items():
+        if any(value.startswith(lang) and value.endswith(collection) for value in value_list for lang in lang_list for collection in collection_list):
+            filtered_list.append(key)
     return filtered_list
 
 
@@ -60,15 +61,13 @@ def lambda_handler(event, context):
     print(event)
     client = boto3.client('lambda')
 
-    # The list of Lambda function names to call (from input event)
-    all_function_names: list = os.environ.get('FUNCTION_NAME', '').split(',')
     query_params = event.get('queryStringParameters', {})
     # if(query_params.get('type') == 'search'):
-    return search(query_params, all_function_names, client)
+    return search(query_params, client)
     # elif(query_params.get('type') == 'random'):
     #     return random(query_params, all_function_names, client)
 
-def search(query_params, all_function_names, client):
+def search(query_params, client):
     lang = query_params.get('language_code')
     if not lang or lang == '':
         lang = ['']
@@ -81,13 +80,13 @@ def search(query_params, all_function_names, client):
     else:
         collections = collections.strip(' ,').split(',')
 
-    function_names = get_functions_to_call(all_function_names, lang, collections)
+    function_names = get_functions_to_call(lang, collections)
     # The query parameter from the input event
     if function_names == []:
         return {
             'statusCode': 400,
             'body': json.dumps({
-                'message': 'Check lang or collections or FUNCTION_NAME environment variable parameter.'
+                'message': 'Check lang or collections parameters.'
             })
         }
     query = query_params.get('query')
@@ -138,7 +137,7 @@ if __name__ == '__main__':
     print(lambda_handler({
         "queryStringParameters": {
             "query": "Allah",
-            "language_code": ",eng",
+            "language_code": ",ind",
             "collection": ","
         }
     }, None))

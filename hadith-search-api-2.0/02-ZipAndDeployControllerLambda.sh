@@ -10,6 +10,7 @@ FUNCTION_NAME="HadithSearchController"
 
 if aws lambda get-function --function-name "$FUNCTION_NAME" > /dev/null 2>&1; then
     echo "Function $FUNCTION_NAME already exists. Updating it."
+    echo "Size of controller.zip: $(du -sh "controller.zip" | cut -f1)"
     aws lambda update-function-code \
         --function-name "$FUNCTION_NAME" \
         --zip-file fileb://controller.zip \
@@ -17,6 +18,7 @@ if aws lambda get-function --function-name "$FUNCTION_NAME" > /dev/null 2>&1; th
 
 else
     echo "Creating function $FUNCTION_NAME."
+    echo "Size of controller.zip: $(du -sh "controller.zip" | cut -f1)"
     aws lambda create-function \
         --function-name $FUNCTION_NAME \
         --runtime python3.12 \

@@ -29,12 +29,14 @@ for zip_file in zippedData/*.zip; do
     # Check if the function already exists (ignore error if it doesn't)
     if aws lambda get-function --function-name "$function_name" > /dev/null 2>&1; then
         echo "Function $function_name already exists. Updating it."
+        echo "Size of $zip_file: $(du -sh "$zip_file" | cut -f1)"
         aws lambda update-function-code \
             --function-name "$function_name" \
             --zip-file fileb://"$zip_file" \
             --no-cli-pager
     else
         echo "Creating function $function_name."
+        echo "Size of $zip_file: $(du -sh "$zip_file" | cut -f1)"
         aws lambda create-function \
             --function-name "$function_name" \
             --runtime python3.12 \

@@ -5,7 +5,7 @@ zip ../../controller.zip controller.py simplify_arabic.py hadith_map.json
 cd ../../
 
 WORKER_FUNCTION_NAMES_LIST=$(ls zippedData | sed 's/\.zip$//g' | tr '\n' ',')
-ROLE_ARN=$ROLE_ARN
+ROLE_ARN=${{ secrets.ROLE_ARN }}
 FUNCTION_NAME="HadithSearchController"
 
 if aws lambda get-function --function-name "$FUNCTION_NAME" > /dev/null 2>&1; then

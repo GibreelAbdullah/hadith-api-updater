@@ -15,7 +15,7 @@ done
 #!/bin/bash
 
 # IAM role ARN for Lambda functions
-ROLE_ARN=$ROLE_ARN
+ROLE_ARN=${{ secrets.ROLE_ARN }}
 
 # Loop through each zip file in the zippedData directory
 for zip_file in zippedData/*.zip; do

@@ -8,14 +8,14 @@ def removeSpecialChars(query_param):
     query_param = re.sub(r'[ ]+', ' OR ', query_param)
     return query_param
 
-def searchData(query_param):
+def searchData(query_param, lang, collections):
     if not query_param:
         return {'statusCode': 400, 'body': 'Invalid search word'}
-    return searchQueryData(removeSpecialChars(query_param))
+    return searchQueryData(removeSpecialChars(query_param), lang, collections)
 
 
 def lambda_handler(event, context):
-    return searchData(event.get('query'))
+    return searchData(event.get('query'), event.get('lang'), event.get('collection'))
 
 if __name__ == '__main__':
-    print(lambda_handler({"type": "search","query": "الرحمن"}, None))
+    print(lambda_handler({"type": "search","query": "الرحمن", "lang": "ara", "collection": "bukhari"}, None))

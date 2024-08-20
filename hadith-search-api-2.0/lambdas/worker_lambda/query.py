@@ -43,7 +43,13 @@ def randomQuery(length):
         h2.language = 'ara' LIMIT 1;
 '''.format(length)
 
-def searchQueryData(query_param):
+def searchQueryData(query_param, lang, collection):
+    langFilter = ''
+    if (lang is not None and lang != '' and lang != ','):
+        langFilter = f'AND "language" MATCH "{lang.replace(","," OR ")}"'
+    collectionFilter = ''
+    if (collection is not None and collection != '' and collection != ','):
+        collectionFilter = f'AND "shortname" MATCH "{collection.replace(","," OR ")}"'
     query = '''
     SELECT
         hadithnumber,
@@ -62,10 +68,12 @@ def searchQueryData(query_param):
         hadith MATCH ?
         AND text != ''
         AND text != 'empty'
+        {}
+        {}
     ORDER BY
         rank
     LIMIT 20
-    '''
+    '''.format(langFilter, collectionFilter)
     cursor = conn.execute(query, [query_param])
     data = cursor.fetchall()
     return data

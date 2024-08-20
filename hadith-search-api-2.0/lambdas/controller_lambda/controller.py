@@ -39,14 +39,14 @@ def get_functions_to_call(lang_list, collection_list):
     return filtered_list
 
 
-def invoke_lambda(client, function_name, query):
+def invoke_lambda(client, function_name, query, lang, collection):
     from simplify_arabic import simplify_arabic_text
     query = simplify_arabic_text(query)
 
     response = client.invoke(
         FunctionName=function_name,
         InvocationType='RequestResponse',  # Synchronous invocation
-        Payload=json.dumps({'query': query})
+        Payload=json.dumps({'query': query, 'lang': lang, 'collection': collection})
     )
     response_payload = json.loads(response['Payload'].read())
     return {
@@ -68,17 +68,17 @@ def lambda_handler(event, context):
 def search(query_params, client):
     lang = query_params.get('language_code')
     if not lang or lang == '':
-        lang = ['']
+        lang_list = ['']
     else:
-        lang = lang.strip(' ,').split(',')
+        lang_list = lang.strip(' ,').split(',')
 
-    collections = query_params.get('collection')
-    if not collections or collections == '':
-        collections = ['']
+    collection = query_params.get('collection')
+    if not collection or collection == '':
+        collection_list = ['']
     else:
-        collections = collections.strip(' ,').split(',')
+        collection_list = collection.strip(' ,').split(',')
 
-    function_names = get_functions_to_call(lang, collections)
+    function_names = get_functions_to_call(lang_list, collection_list)
     # The query parameter from the input event
     if function_names == []:
         return {
@@ -103,7 +103,7 @@ def search(query_params, client):
     # Use ThreadPoolExecutor to manage concurrent threads
     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
         future_to_function = {
-            executor.submit(invoke_lambda, client, function_name, query): function_name
+            executor.submit(invoke_lambda, client, function_name, query, lang, collection): function_name
             for function_name in function_names
         }
 

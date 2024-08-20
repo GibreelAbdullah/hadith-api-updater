@@ -40,10 +40,8 @@ def get_functions_to_call(lang_list, collection_list):
 
 
 def invoke_lambda(client, function_name, query):
-    if function_name.startswith('ara'):
-        from simplify_arabic import simplify_arabic_text
-        query = simplify_arabic_text(query)
-
+    from simplify_arabic import simplify_arabic_text
+    query = simplify_arabic_text(query)
 
     response = client.invoke(
         FunctionName=function_name,

@@ -106,7 +106,7 @@ for collection in collection_names:
     conn.commit()
     
     database_size = os.path.getsize(f"data/{hadith_worker_prefix}{hadithShardNumber}/hadith.db")
-    if database_size > 200*1024*1024:
+    if database_size > 150*1024*1024:
         conn.close()
         hadithShardNumber += 1
         conn, cursor = get_connection(hadithShardNumber)

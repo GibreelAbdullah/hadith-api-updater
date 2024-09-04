@@ -61,7 +61,6 @@ if __name__ == "__main__":
                     "name": "Imam Tirmidhi (2)",
                     "grade": "Hasan Sahih (in another nuskha)",
                     "source": "Dar al-Kutub al-Misriyya"
-
                 },
                 {
                     "name": "Darqutni",
@@ -92,6 +91,11 @@ if __name__ == "__main__":
                     "name": "Anwar Shah Kashmiri",
                     "grade": "Sahih",
                     "source": "نيل الفرقدين في مسألة رفع اليدين ص 56"
+                },
+                {
+                    "name": "Shu'ayb al-Arna'ut",
+                    "grade": "Isnaad Sahih",
+                    "source": "تخريج زاد المعاد (1/211)"
                 }
             ],
         },

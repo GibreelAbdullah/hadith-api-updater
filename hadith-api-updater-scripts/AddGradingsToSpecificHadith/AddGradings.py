@@ -58,6 +58,12 @@ if __name__ == "__main__":
                     "grade": "Hasan",
                 },
                 {
+                    "name": "Imam Tirmidhi (2)",
+                    "grade": "Hasan Sahih (in another nuskha)",
+                    "source": "Dar al-Kutub al-Misriyya"
+
+                },
+                {
                     "name": "Darqutni",
                     "grade": "Isnaad Sahih",
                     "source": "کتاب العلل الدارقطنی ج 5 ص 172 سوال 804 (https://shamela.ws/book/9082/1503)"
